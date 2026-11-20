@@ -1,0 +1,1403 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<title>Danial Alemasoum</title>
+<meta name="description" content="Danial Alemasoum, doctoral researcher at the University of Lapland. Research on uncalibrated empathy, the AI Multiplier Effect and the Bias-Aware AI Canvas in public service design.">
+<meta property="og:title" content="Danial Alemasoum">
+<meta property="og:description" content="Research on uncalibrated empathy, the AI Multiplier Effect and the Bias-Aware AI Canvas in public service design.">
+<meta property="og:type" content="website">
+<link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 32 32'%3E%3Crect width='32' height='32' rx='6' fill='%23151A28'/%3E%3Ctext x='16' y='22' font-family='Georgia,serif' font-size='18' font-weight='700' text-anchor='middle' fill='%23fff'%3ED%3C/text%3E%3C/svg%3E">
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=IBM+Plex+Mono:wght@400;500&family=IBM+Plex+Sans:wght@400;500;600&family=Newsreader:ital,opsz,wght@0,6..72,400;0,6..72,600;1,6..72,400&display=swap">
+<style>body{margin:0}img{max-width:100%}[hidden]{display:none!important}:root{color-scheme:light}</style>
+<style>
+/* Layout: top bar with name and section nav; one wide reading column per view; research shown as dot-field diagrams.
+   Tokens: cool paper neutral, ink navy, four mechanism colours taken from the talk slides. */
+:root{
+  --bg:#F5F6FA; --surface:#FFFFFF; --ink:#151A28; --muted:#566077; --line:#D8DCE8;
+  --blue:#2F4B7C; --red:#C23A4E; --purple:#7B4FB3; --teal:#0A7E8A; --amber:#B97A12;
+  --tint:#EAEEF6;
+  --display:'Newsreader',Georgia,'Times New Roman',serif;
+  --body:'IBM Plex Sans',system-ui,-apple-system,'Segoe UI',sans-serif;
+  --mono:'IBM Plex Mono',ui-monospace,Menlo,Consolas,monospace;
+}
+@media (prefers-color-scheme:dark){:root:not([data-theme="light"]){
+  --bg:#10131C; --surface:#171B27; --ink:#E9ECF4; --muted:#9AA3B8; --line:#2A3042;
+  --blue:#8FA9DB; --red:#F07C8C; --purple:#B391E6; --teal:#4CC3CF; --amber:#F0B861; --tint:#1C2232; color-scheme:dark}}
+:root[data-theme="dark"]{
+  --bg:#10131C; --surface:#171B27; --ink:#E9ECF4; --muted:#9AA3B8; --line:#2A3042;
+  --blue:#8FA9DB; --red:#F07C8C; --purple:#B391E6; --teal:#4CC3CF; --amber:#F0B861; --tint:#1C2232; color-scheme:dark}
+*{box-sizing:border-box}
+body{background:var(--bg);color:var(--ink);font:400 17px/1.6 var(--body);padding-left:max(16px,env(safe-area-inset-left,0px));padding-right:max(16px,env(safe-area-inset-right,0px));padding-block:0}
+a{color:var(--blue);text-underline-offset:3px}
+a:focus-visible,button:focus-visible{outline:3px solid var(--purple);outline-offset:3px;border-radius:4px}
+.wrap{max-width:1040px;margin:0 auto}
+header{display:flex;flex-wrap:wrap;gap:12px 32px;align-items:baseline;justify-content:space-between;padding-block:22px;border-bottom:1px solid var(--line)}
+.brand{font:600 20px/1 var(--display);color:var(--ink);text-decoration:none;letter-spacing:.01em}
+nav{display:flex;flex-wrap:wrap;gap:6px 22px}
+nav a{font:500 12px/1 var(--mono);letter-spacing:.08em;text-transform:uppercase;color:var(--muted);text-decoration:none;padding:8px 0;border-bottom:2px solid transparent}
+nav a[aria-current="page"]{color:var(--ink);border-bottom-color:var(--red)}
+main{padding-block:48px 72px}
+.eyebrow{font:500 12px/1 var(--mono);letter-spacing:.12em;text-transform:uppercase;color:var(--muted);margin:0 0 18px}
+h1,h2,h3{font-family:var(--display);font-weight:600;line-height:1.12;text-wrap:balance;margin:0}
+h1{font-size:clamp(34px,6vw,60px);letter-spacing:-.01em;max-width:18ch}
+h1 em{font-style:italic;font-weight:400;color:var(--red)}
+h2{font-size:clamp(26px,3.6vw,36px);margin-bottom:16px}
+h3{font-size:22px;margin-bottom:8px}
+p{margin:0 0 16px;max-width:66ch}
+.lede{font-size:20px;line-height:1.5;color:var(--muted);max-width:60ch}
+section.block{margin-top:64px}
+.status{display:inline-flex;gap:10px;align-items:center;font:500 12px/1.3 var(--mono);letter-spacing:.04em;color:var(--muted);border:1px solid var(--line);border-radius:999px;padding:7px 14px;margin-top:8px}
+.status i{display:none}
+.fields{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:20px;margin-top:44px}
+.field{background:var(--surface);border:1px solid var(--line);border-radius:10px;padding:18px}
+.field svg{width:100%;height:auto;display:block}
+.field b{display:block;font:500 12px/1 var(--mono);letter-spacing:.08em;text-transform:uppercase;margin-top:14px}
+.field span{display:block;color:var(--muted);font-size:15px;margin-top:6px;line-height:1.45}
+.field .step{color:var(--muted);font:500 12px/1 var(--mono)}
+.fig{margin:40px 0 0;background:var(--surface);border:1px solid var(--line);border-radius:10px;padding:22px}
+.fig figcaption{font-size:14px;color:var(--muted);margin-top:16px;max-width:70ch}
+.fig figcaption b{color:var(--ink)}
+.flow{display:grid;grid-template-columns:repeat(4,minmax(0,1fr));gap:28px}
+.node{position:relative;border:1.5px solid var(--c,var(--line));border-radius:8px;padding:14px 14px 16px;background:var(--bg)}
+.node small{display:block;font:500 11px/1 var(--mono);letter-spacing:.1em;text-transform:uppercase;color:var(--c,var(--muted));margin-bottom:8px}
+.node b{display:block;font:600 18px/1.2 var(--display);margin-bottom:6px}
+.node span{display:block;font-size:14px;line-height:1.4;color:var(--muted)}
+.flow .node:not(:last-child)::after{content:"\2192";position:absolute;right:-24px;top:50%;transform:translateY(-50%);color:var(--muted);font-size:20px}
+.outcome{margin-top:16px;border:1.5px solid var(--red);border-radius:8px;padding:12px 16px;font-size:15px}
+.outcome b{font-family:var(--display);font-size:17px}
+.intervene{margin-top:16px;display:grid;grid-template-columns:repeat(4,minmax(0,1fr));gap:28px}
+.intervene div{grid-column:1 / span 3;border:1.5px dashed var(--teal);border-radius:8px;padding:10px 14px;font-size:14px;color:var(--ink)}
+.intervene div b{color:var(--teal);font:500 11px/1 var(--mono);letter-spacing:.1em;text-transform:uppercase;display:block;margin-bottom:6px}
+.matrix{display:grid;grid-template-columns:110px repeat(3,minmax(0,1fr));gap:10px 18px;font-size:14px;line-height:1.4}
+.matrix .h{font:500 11px/1.3 var(--mono);letter-spacing:.1em;text-transform:uppercase;color:var(--muted)}
+.matrix .r{font:600 18px/1.2 var(--display)}
+.matrix .c{border:1px solid var(--line);border-radius:6px;padding:10px 12px;background:var(--bg);position:relative}
+.matrix .c:not(:nth-child(4n))::after{content:"\2192";position:absolute;right:-17px;top:50%;transform:translateY(-50%);color:var(--muted)}
+.cflow{display:block;width:100%;max-width:560px;height:auto;margin:0 auto}
+.cflow .nd{fill:var(--bg);stroke:var(--line);stroke-width:1.5}
+.cflow .t1{stroke:var(--blue)}.cflow .t2{stroke:var(--teal)}.cflow .t3{stroke:var(--purple)}.cflow .gap{stroke:var(--red)}
+.cflow text{fill:var(--ink);font:400 13.5px var(--body)}
+.cflow .tb{font-weight:600}
+.cflow .tl{fill:var(--muted);font:500 12px var(--mono)}
+.cflow .ar{stroke:var(--muted);stroke-width:1.5;fill:none}
+.cflow .ah{fill:var(--muted)}
+@media (max-width:760px){
+  .flow,.intervene{grid-template-columns:minmax(0,1fr);gap:26px}
+  .flow .node:not(:last-child)::after{content:"\2193";right:auto;left:50%;top:auto;bottom:-26px;transform:translateX(-50%)}
+  .intervene div{grid-column:auto}
+  .matrix{grid-template-columns:minmax(0,1fr);gap:8px}
+  .matrix .h{display:none}
+  .matrix .r{margin-top:14px}
+  .matrix .c:not(:nth-child(4n))::after{content:"\2193";right:auto;left:50%;top:auto;bottom:-16px;transform:translateX(-50%)}
+}
+.ctl{display:flex;flex-wrap:wrap;gap:8px;align-items:center;margin-bottom:18px}
+.seg{font:500 12px/1 var(--mono);letter-spacing:.06em;text-transform:uppercase;background:var(--surface);color:var(--ink);border:1px solid var(--line);border-radius:999px;padding:10px 14px;cursor:pointer}
+.seg:hover{border-color:var(--muted)}
+.seg.on{background:var(--ink);color:var(--bg);border-color:var(--ink)}
+.ctl-hint{font-size:13px;color:var(--muted);margin-left:6px}
+.canvas-wrap{display:grid;grid-template-columns:minmax(0,1.1fr) minmax(0,.9fr);gap:28px;align-items:start}
+.cpanel{position:sticky;top:16px;border:1px solid var(--line);border-left:4px solid var(--teal);border-radius:10px;background:var(--surface);padding:22px}
+.cpanel small{font:500 11px/1 var(--mono);letter-spacing:.1em;text-transform:uppercase;color:var(--muted);display:block;margin-bottom:10px}
+.cpanel h3{font-size:24px}
+.cpanel p{font-size:16px}
+.cp-nav{display:flex;flex-wrap:wrap;gap:8px;align-items:center;margin-top:18px}
+.cflow .cn{cursor:pointer;transition:opacity .2s}
+.cflow .cn.dim{opacity:.22}
+.cflow .cn:focus{outline:none}
+.cflow .cn:focus-visible .nd,.cflow .cn.sel .nd{stroke-width:3.5;stroke:var(--red)}
+.cflow .cn.sel .nd{fill:var(--tint)}
+.cflow .cn:hover .nd{stroke-width:3}
+.static{margin-top:28px}
+.static summary{cursor:pointer;font:500 12px/1 var(--mono);letter-spacing:.08em;text-transform:uppercase;color:var(--muted);padding:8px 0}
+.static img{margin-top:14px}
+@media (max-width:760px){.canvas-wrap{grid-template-columns:minmax(0,1fr)}.cpanel{position:static;order:-1}}
+@media (prefers-reduced-motion:reduce){.cflow .cn{transition:none}}
+.vec{border:1px solid var(--line);border-radius:10px;background:#fff;overflow:auto}
+.vec svg{display:block;width:100%;height:auto}
+.vec.full{max-height:75vh}
+.vec.full svg{width:1920px;max-width:none}
+.prog{display:flex;flex-wrap:wrap;gap:8px;list-style:none;padding:0;margin:0 0 16px}
+.prog li{font:500 11px/1 var(--mono);letter-spacing:.08em;text-transform:uppercase;padding:7px 11px;border:1px solid var(--line);border-radius:999px;color:var(--muted)}
+.prog li.on{border-color:var(--teal);color:var(--ink);background:var(--tint)}
+.prog li.done{color:var(--ink)}
+.sc-card{border:1px solid var(--line);border-radius:10px;background:var(--surface);padding:24px;max-width:780px}
+.sc-card h3{font-size:24px}
+.sc-card .tag2{font:500 11px/1 var(--mono);letter-spacing:.1em;text-transform:uppercase;color:var(--muted);display:block;margin-bottom:10px}
+.sc-q{font-size:18px}
+.ex{border-left:3px solid var(--amber);background:var(--tint);padding:12px 16px;border-radius:0 8px 8px 0;margin:14px 0;font-size:15px}
+.ex b{display:block;font:500 11px/1 var(--mono);letter-spacing:.1em;text-transform:uppercase;color:var(--amber);margin-bottom:6px}
+.sc-card textarea{width:100%;min-height:110px;font:inherit;font-size:16px;color:var(--ink);background:var(--bg);border:1px solid var(--line);border-radius:8px;padding:12px;margin:10px 0}
+.sc-actions{display:flex;flex-wrap:wrap;gap:8px;margin-top:16px}
+.sc-sum{list-style:none;margin:16px 0 0;padding:0}
+.sc-sum li{border-top:1px solid var(--line);padding:12px 0;font-size:15px}
+.sc-sum li b{display:block;font:500 11px/1 var(--mono);letter-spacing:.08em;text-transform:uppercase;color:var(--muted);margin-bottom:6px}
+.sc-sum li span{white-space:pre-wrap}
+.gallery{display:grid;grid-template-columns:minmax(0,1fr) minmax(0,1fr);gap:20px;margin-top:36px;align-items:start}
+.gallery figure{margin:0}
+.gallery img{display:block;width:100%;height:auto;border-radius:10px;border:1px solid var(--line)}
+.gallery figcaption{font-size:14px;color:var(--muted);margin-top:8px}
+.gallery .tall{grid-row:span 2}
+.gallery .stack{display:grid;gap:20px}
+@media (max-width:760px){.gallery{grid-template-columns:minmax(0,1fr)}.gallery .tall{grid-row:auto}}
+.logo{display:block;height:72px;width:auto;max-width:100%}
+footer .logo{height:44px}
+@media (prefers-color-scheme:dark){:root:not([data-theme="light"]) .logo{filter:invert(1)}}
+:root[data-theme="dark"] .logo{filter:invert(1)}
+.paper{max-width:780px}
+.paper h1{max-width:none;font-size:clamp(30px,5vw,46px)}
+.paper{counter-reset:sec}
+.paper h2.n{font-size:26px;margin:48px 0 12px}
+.paper h2.n::before{counter-increment:sec;content:counter(sec) ".  ";color:var(--muted);font:500 .6em var(--mono)}
+.paper h3{font-size:19px;margin:24px 0 6px}
+.meta{font:500 12px/1.7 var(--mono);letter-spacing:.04em;color:var(--muted);margin:18px 0 0}
+.abs{border-top:2px solid var(--ink);border-bottom:1px solid var(--line);padding:6px 0 10px;margin:28px 0}
+.abs h2{font:500 12px/1 var(--mono);letter-spacing:.12em;text-transform:uppercase;margin:16px 0 10px;color:var(--muted)}
+.kw{font:500 13px/1.6 var(--mono);color:var(--muted)}
+.paper .fig{margin:28px 0 0;padding:18px}
+.back{font:500 12px/1 var(--mono);letter-spacing:.1em;text-transform:uppercase;color:var(--muted);text-decoration:none}
+.dia{overflow-x:auto}
+.dia svg{display:block;min-width:600px;width:100%;height:auto}
+.dg text{fill:var(--ink);font:400 13px var(--body)}
+.dg .b{font-weight:600}
+.dg .m{fill:var(--muted);font-size:12px}
+.dg .box{fill:var(--bg);stroke:var(--line);stroke-width:1.5}
+.dg .s1{stroke:var(--blue)}.dg .s2{stroke:var(--red)}.dg .s3{stroke:var(--purple)}.dg .s4{stroke:var(--teal)}.dg .s5{stroke:var(--amber)}
+.dg .f1{fill:var(--blue)}.dg .f2{fill:var(--red)}.dg .f3{fill:var(--purple)}.dg .f4{fill:var(--teal)}.dg .f5{fill:var(--amber)}
+.dg .ln{stroke:var(--muted);fill:none;stroke-width:1.5}
+.dg .dash{stroke-dasharray:6 5}
+.dg .tint{fill:var(--tint)}
+.dg .arh{fill:var(--muted)}
+.bars{display:grid;gap:10px}
+.bar{display:grid;grid-template-columns:minmax(120px,210px) minmax(0,1fr) 34px;gap:12px;align-items:center;font-size:14px}
+.bar i{display:block;height:16px;border-radius:3px;background:var(--c,var(--blue))}
+.bar b{font:500 13px var(--mono);text-align:right}
+.trace{display:grid;gap:10px}
+.tr{display:grid;grid-template-columns:minmax(0,1fr) 28px minmax(0,1fr);gap:10px;align-items:stretch;font-size:14px;line-height:1.4}
+.tr>div:not(.ar2){border:1px solid var(--line);border-radius:8px;padding:10px 12px;background:var(--bg)}
+.tr small{display:block;font:500 11px/1 var(--mono);letter-spacing:.08em;text-transform:uppercase;color:var(--muted);margin-bottom:6px}
+.tr .ar2{display:flex;align-items:center;justify-content:center;color:var(--muted);font-size:18px}
+.tbl{width:100%;border-collapse:collapse;font-size:14px;line-height:1.45}
+.tbl th,.tbl td{text-align:left;vertical-align:top;padding:10px 12px 10px 0;border-top:1px solid var(--line)}
+.tbl th{font:500 11px/1.3 var(--mono);letter-spacing:.1em;text-transform:uppercase;color:var(--muted);border-top:0}
+.tbl td:first-child{font-weight:600}
+.steps{display:grid;grid-template-columns:repeat(4,minmax(0,1fr));gap:12px;margin:0;padding:0;list-style:none;counter-reset:st}
+.steps li{counter-increment:st;border:1px solid var(--line);border-radius:8px;padding:12px;font-size:14px;line-height:1.4;background:var(--bg)}
+.steps li::before{content:counter(st);display:block;font:600 22px/1 var(--display);color:var(--red);margin-bottom:6px}
+.two{display:grid;grid-template-columns:minmax(0,1fr) 36px minmax(0,1fr);gap:12px;align-items:center}
+.two ul{margin:0;padding-left:1.1em;font-size:14px}
+.two>div{border:1px solid var(--line);border-radius:8px;padding:12px 16px;background:var(--bg)}
+.two h4{margin:0 0 6px;font:500 11px/1 var(--mono);letter-spacing:.1em;text-transform:uppercase;color:var(--muted)}
+.two .mid{border:0;background:none;text-align:center;color:var(--muted);font-size:22px;padding:0}
+.refl{font-size:15px;max-width:68ch}
+.rcards{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:20px;margin-top:22px}
+.rcard{display:flex;flex-direction:column;gap:10px;border:1px solid var(--line);border-radius:10px;background:var(--surface);padding:18px;text-decoration:none;color:var(--ink)}
+.rcard:hover{border-color:var(--red)}
+.rcard svg{width:100%;height:auto;display:block;border-radius:6px;background:var(--tint)}
+.rcard small{font:500 11px/1 var(--mono);letter-spacing:.1em;text-transform:uppercase;color:var(--muted)}
+.rcard h3{font-size:22px;margin:0}
+.rcard p{font-size:15px;color:var(--muted);margin:0}
+.rcard span{font:500 12px/1 var(--mono);letter-spacing:.08em;text-transform:uppercase;color:var(--red)}
+.lab{border:1px solid var(--line);border-radius:10px;background:var(--surface);padding:20px;margin-top:20px}
+.lab h3{margin:0 0 6px;font-size:22px}
+.lab .note{margin:12px 0}
+.fgrp{display:flex;flex-wrap:wrap;gap:6px;align-items:center;margin:8px 0}
+.fgrp>span{font:500 11px/1 var(--mono);letter-spacing:.08em;text-transform:uppercase;color:var(--muted);min-width:70px}
+.clips{display:grid;grid-template-columns:repeat(4,minmax(0,1fr));gap:8px;margin:14px 0}
+.clip{border:1px solid var(--line);border-radius:6px;padding:8px 10px;font-size:12.5px;line-height:1.35;background:var(--bg)}
+.clip b{display:block;font:600 12px var(--mono)}
+.clip.off{opacity:.35;border-style:dashed}
+.clip.sus{border-color:var(--red)}
+.clip em{color:var(--red);font-style:normal;font:500 11px var(--mono);display:block}
+.mets{display:flex;flex-wrap:wrap;gap:8px 24px;font:500 13px var(--mono);margin:10px 0}
+.log{font:400 12.5px/1.6 var(--mono);color:var(--muted);margin:10px 0 0;padding:10px 12px;border-left:3px solid var(--line);background:var(--tint);min-height:40px}
+.mont{display:flex;height:44px;border-radius:6px;overflow:hidden;border:1px solid var(--line);margin:12px 0}
+.mont div{display:flex;align-items:center;justify-content:center;color:var(--bg);font:600 12px var(--mono);min-width:0;overflow:hidden}
+.floor{height:70px;border-radius:8px;border:1px solid var(--line);background:var(--tint);transition:background .6s}
+.rng{display:flex;flex-wrap:wrap;gap:10px 16px;align-items:center;margin:8px 0}
+.rng input{accent-color:var(--red)}
+@media (max-width:760px){
+  .rcards{grid-template-columns:minmax(0,1fr)}
+  .steps{grid-template-columns:repeat(2,minmax(0,1fr))}
+  .tr{grid-template-columns:minmax(0,1fr)}.tr .ar2{transform:rotate(90deg);height:18px}
+  .two{grid-template-columns:minmax(0,1fr)}.two .mid{transform:rotate(90deg)}
+  .clips{grid-template-columns:repeat(2,minmax(0,1fr))}
+  .bar{grid-template-columns:minmax(90px,130px) minmax(0,1fr) 30px}
+}
+@media (prefers-reduced-motion:reduce){.floor{transition:none}}
+.about{display:grid;grid-template-columns:minmax(0,260px) minmax(0,1fr);gap:36px;align-items:start;margin-top:8px}
+.portrait{width:100%;height:auto;border-radius:12px;border:1px solid var(--line);display:block}
+.plinks{display:flex;flex-wrap:wrap;gap:8px 24px;font:500 13px/1.4 var(--mono);letter-spacing:.04em}
+@media (max-width:760px){.about{grid-template-columns:minmax(0,1fr)}.portrait{max-width:240px}}
+.shared{display:flex;flex-wrap:wrap;gap:16px 28px;align-items:center;border-top:1px solid var(--line);border-bottom:1px solid var(--line);padding:18px 0;margin-top:48px}
+.shared .logo{height:56px}
+.shared ul{list-style:none;margin:0;padding:0;display:flex;flex-wrap:wrap;gap:12px 32px;flex:1 1 320px}
+.shared li{font-size:15px;line-height:1.4;max-width:34ch}
+.shared li small{display:block;font:500 11px/1 var(--mono);letter-spacing:.1em;text-transform:uppercase;color:var(--muted);margin-bottom:5px}
+.shared a{color:var(--ink);text-decoration:none}
+.shared a:hover{color:var(--red)}
+.collab{margin-top:56px;background:var(--surface);border:1px solid var(--line);border-radius:12px;padding:28px}
+.collab h2{margin-bottom:10px}
+.collab .values{margin-top:18px}
+.collab ul.get{margin:14px 0 0;padding-left:1.2em;max-width:66ch}
+.collab ul.get li{margin-bottom:6px}
+.cta{display:flex;flex-wrap:wrap;gap:12px;align-items:center;margin-top:22px}
+.paths{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:0;margin-top:56px;border-top:1px solid var(--line)}
+.paths a{display:block;padding:22px 22px 24px 0;text-decoration:none;color:var(--ink);border-bottom:1px solid var(--line)}
+.paths a+a{padding-left:22px;border-left:1px solid var(--line)}
+.paths a:hover h3{color:var(--red)}
+.paths small{display:block;font:500 12px/1 var(--mono);letter-spacing:.08em;text-transform:uppercase;color:var(--muted);margin-bottom:10px}
+.paths p{color:var(--muted);font-size:16px;margin:0}
+.layers{border:1px solid var(--line);border-radius:10px;background:var(--surface);overflow:hidden}
+.layer{display:grid;grid-template-columns:150px minmax(0,1fr) minmax(0,1fr);gap:8px 24px;padding:18px 22px;border-top:1px solid var(--line)}
+.layer:first-child{border-top:0}
+.layer h3{font-size:20px;margin:0}
+.layer h3 small{display:block;font:500 11px/1.4 var(--mono);letter-spacing:.08em;text-transform:uppercase;color:var(--muted);margin-top:4px}
+.layer .hyp{color:var(--red);font-style:italic}
+.layer-head{background:var(--tint);font:500 11px/1 var(--mono);letter-spacing:.1em;text-transform:uppercase;color:var(--muted)}
+.layer-head div{padding:0}
+.note{border-left:3px solid var(--amber);background:var(--tint);padding:14px 18px;border-radius:0 8px 8px 0;max-width:66ch;font-size:16px}
+.src{width:100%;border-collapse:collapse;font-size:15px}
+.src th,.src td{text-align:left;vertical-align:top;padding:12px 14px 12px 0;border-top:1px solid var(--line)}
+.src th{font:500 11px/1.3 var(--mono);letter-spacing:.1em;text-transform:uppercase;color:var(--muted);border-top:0}
+.src td:first-child{font-weight:600;white-space:nowrap}
+.scroll{overflow-x:auto}
+.canvas-img{display:block;width:100%;height:auto;border:1px solid var(--line);border-radius:10px;background:#fff}
+.stages{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:24px;margin-top:32px}
+.stages h3{display:flex;gap:10px;align-items:center}
+.stages h3 span{width:30px;height:30px;border-radius:50%;background:var(--teal);color:var(--bg);font:600 15px/30px var(--body);text-align:center;flex:none}
+.values{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:20px;margin-top:20px}
+.val{border-top:4px solid var(--c);padding-top:14px}
+.val h3{font-size:20px}
+.val p{font-size:15px;color:var(--muted);margin:0}
+.refs{padding:0;margin:0;list-style:none}
+.refs li{padding:12px 0 12px 28px;text-indent:-28px;border-top:1px solid var(--line);font-size:15px;max-width:80ch}
+.timeline{list-style:none;margin:0;padding:0}
+.timeline li{display:grid;grid-template-columns:150px minmax(0,1fr);gap:8px 24px;padding:20px 0;border-top:1px solid var(--line)}
+.timeline time{font:500 13px/1.4 var(--mono);color:var(--muted)}
+.tag{display:inline-block;font:500 11px/1 var(--mono);letter-spacing:.08em;text-transform:uppercase;border:1px solid var(--line);border-radius:999px;padding:5px 10px;margin-left:8px;vertical-align:middle;color:var(--muted)}
+.tag.plan{color:var(--amber);border-color:var(--amber)}
+.work{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:20px;margin-top:28px}
+.tile{border:1px dashed var(--line);border-radius:10px;min-height:220px;padding:20px;display:flex;flex-direction:column;justify-content:space-between;background:var(--surface)}
+.tile small{font:500 11px/1 var(--mono);letter-spacing:.1em;text-transform:uppercase;color:var(--muted)}
+.tile h3{font-size:22px}
+.tile p{font-size:14px;color:var(--muted);margin:0}
+.award{display:flex;gap:16px;align-items:center;border:1px solid var(--line);border-radius:10px;padding:18px 20px;background:var(--surface);max-width:560px;margin-top:20px}
+.award b{font:600 28px/1 var(--display);color:var(--red)}
+.mail{font:500 16px/1.4 var(--mono);background:var(--tint);padding:10px 14px;border-radius:8px;display:inline-block;user-select:all}
+footer{border-top:1px solid var(--line);padding-block:26px 40px;color:var(--muted);font-size:14px;display:flex;flex-wrap:wrap;gap:8px 24px;justify-content:space-between}
+[data-view]{display:none}
+[data-view].on{display:block}
+@media (max-width:760px){
+  .fields,.paths,.stages,.values,.work{grid-template-columns:minmax(0,1fr)}
+  .paths a+a{padding-left:0;border-left:0}
+  .layer{grid-template-columns:minmax(0,1fr)}
+  .layer-head{display:none}
+  .timeline li{grid-template-columns:minmax(0,1fr)}
+  main{padding-block:32px 56px}
+}
+@media (prefers-reduced-motion:reduce){*{scroll-behavior:auto!important}}
+</style>
+</head>
+<body>
+
+
+
+
+
+<div class="wrap">
+  <header>
+    <a class="brand" href="#home">Danial Alemasoum</a>
+    <nav aria-label="Sections">
+      <a href="#home">Home</a>
+      <a href="#research">Research</a>
+      <a href="#canvas">Canvas</a>
+      <a href="#talks">Presentations</a>
+      <a href="#earlier">Earlier research</a>
+      <a href="#about">About</a>
+    </nav>
+  </header>
+
+  <main>
+    <!-- HOME -->
+    <div data-view id="v-home">
+      <p class="eyebrow">Doctoral researcher · University of Lapland</p>
+      <h1 style="max-width:22ch">From uncalibrated empathy to systemic bias</h1>
+      <p class="lede" style="margin-top:18px;font-family:var(--display);font-style:italic">The AI Multiplier Effect in public service design</p>
+      <section class="block" style="margin-top:36px">
+        <h2>Research question</h2>
+        <p style="font-size:19px">When we design public services with empathy, and then build AI on top of those designs, what happens to the people our empathy missed?</p>
+        <h2 style="margin-top:32px">Abstract</h2>
+        <p>Public service design relies on empathy to keep services human. Empathy can be uncalibrated: tuned to one group, often the most visible one. When AI is built on such designs, the blind spot is encoded in data and decision logic and repeated at algorithmic scale. This work presents the concept, a three-layer lens (micro, meso, macro), a preliminary reading of five sources, and a draft design-stage instrument, the Bias-Aware AI Canvas.</p>
+        <p style="font:500 13px/1.6 var(--mono);color:var(--muted)">Keywords: public service design · empathic design · AI bias · algorithmic scale · autonomy · Finland</p>
+      </section>
+      <span class="status"><i></i>Early-stage and conceptual. The canvas is a draft and untested.</span>
+
+      <figure class="fig">
+        <div class="flow">
+          <div class="node" style="--c:var(--blue)"><small>1 · Design</small><b>Uncalibrated empathy</b><span>Understanding is tuned to one group</span></div>
+          <div class="node" style="--c:var(--red)"><small>2 · Blind spot</small><b>A gap in the design</b><span>An experience nobody designed for</span></div>
+          <div class="node" style="--c:var(--purple)"><small>3 · Encoding</small><b>Data and decision logic</b><span>The gap is written into the system</span></div>
+          <div class="node" style="--c:var(--amber)"><small>4 · Multiplication</small><b>Automated service</b><span>Runs at algorithmic speed and scale</span></div>
+        </div>
+        <div class="outcome"><b>Outcome (hypothesis):</b> one local blind spot becomes a structural pattern, and each single decision still looks reasonable.</div>
+        <div class="intervene"><div><b>Where the canvas intervenes</b>At design time, before deployment: surface the assumption, then trace it into the AI.</div></div>
+        <figcaption><b>Figure 1.</b> Conceptual model of the AI Multiplier Effect. This is an argument built from the literature, not an empirical finding.</figcaption>
+      </figure>
+
+      <div class="shared" aria-label="Where this work has been presented">
+        <img class="logo" src="logo.png" alt="Lapin yliopisto, University of Lapland">
+        <ul>
+          <li><small>Presented</small><a href="#talks">Inaugural Conference of the Munich Design Institute (MDI), Technical University of Munich, November 2026</a></li>
+          <li><small>Accepted</small><a href="#talks">Nordes 2027: Planetary Design, Rovaniemi, 26&ndash;28 April 2027</a></li>
+        </ul>
+      </div>
+
+      <section class="collab" id="collab">
+        <h2>Open to collaboration</h2>
+        <p>This research is at an early stage, and I am looking for people to think and test with. If you work on public services, service design, participatory design, or AI and fairness, I would be glad to hear from you.</p>
+        <div class="values">
+          <div class="val" style="--c:var(--blue)"><h3>Public-sector teams and service designers</h3><p>Who design or buy automated services and want to see their own assumptions.</p></div>
+          <div class="val" style="--c:var(--red)"><h3>Community and civil-society organisations</h3><p>Who work with people that services can miss.</p></div>
+          <div class="val" style="--c:var(--purple)"><h3>Researchers</h3><p>In design, AI fairness and public administration, for joint work and critique.</p></div>
+        </div>
+        <h3 style="margin-top:28px">What you can get from it</h3>
+        <ul class="get">
+          <li>A structured way to surface hidden assumptions in a service you work on.</li>
+          <li>Early access to the Bias-Aware AI Canvas and to what the first workshop teaches.</li>
+          <li>A conversation about joint work and publications, agreed together and not assumed.</li>
+        </ul>
+        <p style="margin-top:16px;font-size:15px;color:var(--muted)">How it would work: we start with a conversation, and possibly a small, low-stakes workshop. Any later work with the people a service affects would follow informed consent and respect their authority.</p>
+        <div class="cta"><span class="mail" id="mail-c">Danial.alemasoum@ulapland.fi</span><button type="button" class="seg on" id="copy-c">Copy email address</button><span class="ctl-hint" id="copy-s" aria-live="polite"></span></div>
+      </section>
+
+      <div class="paths">
+        <a href="#research"><small>Read</small><h3>The research</h3><p>The concept, three layers, the evidence base and the limits.</p></a>
+        <a href="#canvas"><small>Look</small><h3>The Bias-Aware AI Canvas</h3><p>A draft tool in three stages for surfacing hidden assumptions.</p></a>
+        <a href="#talks"><small>Follow</small><h3>Presentations and next steps</h3><p>Where the work has been presented and where it is going.</p></a>
+      </div>
+    </div>
+
+    <!-- RESEARCH -->
+    <div data-view id="v-research">
+      <p class="eyebrow">Research</p>
+      <h1>From uncalibrated empathy to systemic bias</h1>
+      <p class="lede" style="margin-top:24px">Public service design relies on empathy to keep services human. My question is what happens to the people our empathy missed, once AI builds on those designs.</p>
+
+      <section class="block">
+        <h2>Uncalibrated empathy</h2>
+        <p>Empathic design can lead designers to over-empathise with specific groups and neglect diverse communities (Hyökki et al., 2024, citing Vink &amp; Oertzen, 2018). The designer feels they understand the user, but the understanding is tuned to one group, often the most visible one.</p>
+        <p>Calibration does not mean less empathy. It means knowing whose experience your empathy is built on.</p>
+      </section>
+
+      <section class="block">
+        <h2>The AI Multiplier Effect</h2>
+        <p>A blind spot is built into a design process, encoded into the data and decision logic of an automated service, and then multiplied at algorithmic speed and scale. Before automation, a blind spot in a form affected the people who used that form. With AI, one local blind spot can become a structural pattern, and it is hard to see because each single decision looks reasonable.</p>
+        <figure class="fig">
+          <div class="matrix">
+            <div class="h">Layer</div><div class="h">Blind spot enters</div><div class="h">Encoded in</div><div class="h">Repeated as</div>
+            <div class="r">Micro</div><div class="c">Designer's image of the typical user</div><div class="c">Data and interface built for that user</div><div class="c">The same people excluded each time</div>
+            <div class="r">Meso</div><div class="c">Actors missing from the table</div><div class="c">Data and procurement choices by a few</div><div class="c">Vendor logic reused across services</div>
+            <div class="r">Macro</div><div class="c">Rules silent on who is missing</div><div class="c">Compliance checks what is allowed</div><div class="c">The gap becomes a structural pattern</div>
+          </div>
+          <figcaption><b>Figure 2.</b> Hypothetical pathway of a blind spot through the three layers. Untested.</figcaption>
+        </figure>
+      </section>
+
+      <section class="block">
+        <h2>Three layers where a blind spot can enter</h2>
+        <p>Borrowing the micro, meso and macro levels of Trischler &amp; Trischler (2022). The blind spots below are my hypotheses, informed by the literature. They are not findings.</p>
+        <div class="layers">
+          <div class="layer layer-head"><div>Layer</div><div>What shapes it</div><div>Possible blind spot (hypothesis)</div></div>
+          <div class="layer"><h3>Micro<small>User's lifeworld</small></h3><div>Age, language, distance, devices, skills</div><div class="hyp">The designer's image of the "typical" user</div></div>
+          <div class="layer"><h3>Meso<small>Actors</small></h3><div>Municipalities, wellbeing counties, vendors, NGOs</div><div class="hyp">Data and procurement choices made without every actor at the table</div></div>
+          <div class="layer"><h3>Macro<small>Institutions</small></h3><div>Laws, ministry guidelines, accountability rules</div><div class="hyp">Rules say what is allowed, not whose experience is missing</div></div>
+        </div>
+      </section>
+
+      <section class="block">
+        <h2>Autonomy means being able to challenge a decision</h2>
+        <p>By autonomy I mean a person's ability to notice, question and correct a decision that concerns them. Someone living far from the municipality or the first service point may find it much harder to put a wrong automated decision right. This is an illustration of an argument, not a research finding.</p>
+        <p>It follows that participation alone is not enough. Lydén et al. (2026) remind us that empowerment is embedded in power relations, so people must be able to define their own needs and to reach someone who can correct a decision.</p>
+      </section>
+
+      <section class="block">
+        <h2>Evidence base so far</h2>
+        <p>A preliminary reading of five sources. Claims about gaps apply to these sources only.</p>
+        <div class="scroll">
+        <table class="src">
+          <thead><tr><th>Source</th><th>What it offers</th><th>Open in these sources</th></tr></thead>
+          <tbody>
+            <tr><td>Hyökki et al. (2024)</td><td>Empathic design plus design management; warns of over-empathising</td><td>No instrument yet, and no link to AI</td></tr>
+            <tr><td>Trischler &amp; Trischler (2022)</td><td>Design for experience across micro, meso and macro levels</td><td>Conceptual; calls for new methods</td></tr>
+            <tr><td>Heinisuo (2025); Koskimies &amp; Kinder (2024)</td><td>AI governance in Finnish local government; ethics often come late</td><td>No design-stage tool for calibrating empathy</td></tr>
+            <tr><td>Lydén et al. (2026)</td><td>Ethical canvas for co-design with marginalised groups</td><td>Untested prototype; not about algorithmic scale</td></tr>
+            <tr><td>Ministry of Finance (2025)</td><td>Guidelines on using generative AI in public administration</td><td>Use of tools, not the design of services</td></tr>
+          </tbody>
+        </table>
+        </div>
+        <p style="margin-top:18px"><strong>My contribution:</strong> to link the calibration of empathy to algorithmic scale, and to propose a design-stage instrument.</p>
+      </section>
+
+      <section class="block">
+        <h2>Limits and next steps</h2>
+        <p class="note">Conceptual and preliminary. The canvas is untested, and the Lapland figures I use elsewhere are context, not evidence for the argument.</p>
+        <ol style="padding-left:1.2em;margin-top:20px;max-width:66ch">
+          <li>A systematic literature review, to position the canvas against design-management and AI-fairness frameworks.</li>
+          <li>A small simulated workshop with the participants I can reach.</li>
+          <li>Later, co-design with the people affected, with informed consent and their authority respected.</li>
+        </ol>
+      </section>
+
+      <section class="block">
+        <h2>References</h2>
+        <ul class="refs">
+          <li>Heinisuo, E. (2025). <i>Artificial intelligence in public services: Mutuality in the organisational governance of AI implementation.</i> Tampere University Dissertations 1263.</li>
+          <li>Heinisuo, E., Kuoppakangas, P., &amp; Stenvall, J. (2025). Navigating AI implementation in local government. <i>Information Systems Frontiers.</i></li>
+          <li>Hyökki, S., Pääkkönen, K., Nam, K., &amp; Miettinen, S. (2024). Bridging the gap between human and technology. <i>Human Technology, 20</i>(2), 224–243.</li>
+          <li>Koskimies, E., &amp; Kinder, T. (2024). Mutuality in AI-enabled new public service solutions. <i>Public Management Review, 26</i>(1).</li>
+          <li>Lydén, H., Juujärvi, S., &amp; Miettinen, S. (2026). Designing with care: Proposing an ethical canvas for co-design with marginalised groups. <i>DRS2026</i>, Edinburgh.</li>
+          <li>Ministry of Finance (2025). <i>Guidelines on using generative AI to support and assist work in public administration.</i> Publications of the Ministry of Finance 2025:11.</li>
+          <li>Trischler, J., &amp; Westman Trischler, J. (2022). Design for experience: A public service design approach in the age of digitalization. <i>Public Management Review, 24</i>(8), 1251–1270.</li>
+        </ul>
+      </section>
+    </div>
+
+    <!-- CANVAS -->
+    <div data-view id="v-canvas">
+      <p class="eyebrow">Proposed instrument</p>
+      <h1>The Bias-Aware AI Canvas</h1>
+      <p class="lede" style="margin-top:24px">A boundary object for designers, policymakers and citizen representatives: a shared reference that lets them surface and negotiate assumptions. It is meant to be used before deployment and revisited after it, and it is inspired by the ethical canvas of Lydén et al. (2026).</p>
+      <span class="status"><i></i>Draft. Not yet tested with participants.</span>
+
+      <section class="block" style="margin-top:36px">
+        <div class="ctl" role="group" aria-label="Filter by stage">
+          <button type="button" class="seg on" data-stage="0">All</button>
+          <button type="button" class="seg" data-stage="1">1 · Gather</button>
+          <button type="button" class="seg" data-stage="2">2 · Compare</button>
+          <button type="button" class="seg" data-stage="3">3 · Respond</button>
+          <span class="ctl-hint">Select a box to read the step.</span>
+        </div>
+        <div class="canvas-wrap">
+          <figure class="fig" style="margin:0">
+            <svg class="cflow" id="cflow" viewBox="0 0 520 700" role="group" aria-label="Interactive flowchart of the canvas">
+              <defs><marker id="ah" viewBox="0 0 10 10" refX="8" refY="5" markerWidth="7" markerHeight="7" orient="auto"><path d="M0 0L10 5L0 10z" class="ah"/></marker></defs>
+              <g class="cn" data-id="gather" data-stage="1" tabindex="0" role="button" aria-label="Stage 1, Gather">
+                <rect class="nd t1" x="24" y="10" width="300" height="64" rx="8"/>
+                <text class="tb" x="174" y="32" text-anchor="middle">Stage 1 · Gather</text>
+                <text x="174" y="51" text-anchor="middle">Declare assumptions, then co-design</text>
+                <text x="174" y="67" text-anchor="middle">with marginalised groups</text></g>
+              <path class="ar" d="M174 74V98" marker-end="url(#ah)"/>
+              <g class="cn" data-id="compare" data-stage="2" tabindex="0" role="button" aria-label="Stage 2, Compare">
+                <rect class="nd t2" x="24" y="100" width="300" height="64" rx="8"/>
+                <text class="tb" x="174" y="122" text-anchor="middle">Stage 2 · Compare</text>
+                <text x="174" y="141" text-anchor="middle">Code material, map actors, compare lived</text>
+                <text x="174" y="157" text-anchor="middle">accounts with the system view</text></g>
+              <path class="ar" d="M174 164V188" marker-end="url(#ah)"/>
+              <g class="cn" data-id="gap" data-stage="2" tabindex="0" role="button" aria-label="Decision: is there a gap?">
+                <path class="nd gap" d="M174 190L324 240L174 290L24 240Z"/>
+                <text x="174" y="236" text-anchor="middle">Gap between lived account</text>
+                <text x="174" y="253" text-anchor="middle">and system view?</text></g>
+              <path class="ar" d="M324 240H350" marker-end="url(#ah)"/>
+              <text class="tl" x="326" y="230">No</text>
+              <g class="cn" data-id="record" data-stage="2" tabindex="0" role="button" aria-label="No gap: record it">
+                <rect class="nd" x="352" y="215" width="156" height="50" rx="8"/>
+                <text x="430" y="236" text-anchor="middle">Record it and</text>
+                <text x="430" y="252" text-anchor="middle">move on</text></g>
+              <path class="ar" d="M174 290V314" marker-end="url(#ah)"/>
+              <text class="tl" x="184" y="307">Yes</text>
+              <g class="cn" data-id="trace" data-stage="2" tabindex="0" role="button" aria-label="Trace the gap into the AI">
+                <rect class="nd t2" x="24" y="316" width="300" height="84" rx="8"/>
+                <text class="tb" x="174" y="338" text-anchor="middle">Hidden corner or hidden bias?</text>
+                <text x="174" y="358" text-anchor="middle">Trace it into the AI: which data or logic</text>
+                <text x="174" y="374" text-anchor="middle">assume otherwise, and how many</text>
+                <text x="174" y="390" text-anchor="middle">decisions does it touch?</text></g>
+              <path class="ar" d="M174 400V424" marker-end="url(#ah)"/>
+              <g class="cn" data-id="report" data-stage="2" tabindex="0" role="button" aria-label="Report the gap">
+                <rect class="nd t2" x="24" y="426" width="300" height="48" rx="8"/>
+                <text x="174" y="447" text-anchor="middle">Report the gap and its consequences</text>
+                <text x="174" y="463" text-anchor="middle">to designers and policymakers</text></g>
+              <path class="ar" d="M174 474V498" marker-end="url(#ah)"/>
+              <g class="cn" data-id="respond" data-stage="3" tabindex="0" role="button" aria-label="Stage 3, Respond">
+                <rect class="nd t3" x="24" y="500" width="300" height="64" rx="8"/>
+                <text class="tb" x="174" y="522" text-anchor="middle">Stage 3 · Respond</text>
+                <text x="174" y="541" text-anchor="middle">Gap on a public board, policymakers</text>
+                <text x="174" y="557" text-anchor="middle">respond</text></g>
+              <path class="ar" d="M174 564V588" marker-end="url(#ah)"/>
+              <g class="cn" data-id="check" data-stage="3" tabindex="0" role="button" aria-label="Decision: still valuable to those affected?">
+                <path class="nd gap" d="M174 590L324 640L174 690L24 640Z"/>
+                <text x="174" y="636" text-anchor="middle">After a set period: still valuable</text>
+                <text x="174" y="653" text-anchor="middle">to those affected?</text></g>
+              <path class="ar" d="M324 640H350" marker-end="url(#ah)"/>
+              <text class="tl" x="326" y="630">Yes</text>
+              <g class="cn" data-id="macro" data-stage="3" tabindex="0" role="button" aria-label="Macro stage: institutional change">
+                <rect class="nd t3" x="352" y="615" width="156" height="50" rx="8"/>
+                <text x="430" y="636" text-anchor="middle">Macro stage:</text>
+                <text x="430" y="652" text-anchor="middle">institutional change</text></g>
+              <path class="ar" d="M24 640H10V132H22" marker-end="url(#ah)"/>
+              <text class="tl" x="14" y="624" transform="rotate(-90 14 624)">No: refine the actor map</text>
+            </svg>
+          </figure>
+          <aside class="cpanel" aria-live="polite">
+            <small id="cp-stage"></small>
+            <h3 id="cp-title"></h3>
+            <p id="cp-body"></p>
+            <div class="cp-nav">
+              <button type="button" class="seg" id="cp-prev">← Back</button>
+              <button type="button" class="seg on" id="cp-next">Next step →</button>
+              <span class="ctl-hint" id="cp-count"></span>
+            </div>
+          </aside>
+        </div>
+        </section>
+
+      <section class="block" id="full-canvas">
+        <h2>The full canvas</h2>
+        <p>The complete canvas as a vector drawing. It stays sharp at any size.</p>
+        <div class="ctl" role="group" aria-label="Canvas size">
+          <button type="button" class="seg on" id="z-fit">Fit to width</button>
+          <button type="button" class="seg" id="z-full">Actual size (scroll)</button>
+        </div>
+        <div class="vec" id="vec"><svg xmlns="http://www.w3.org/2000/svg" role="img" aria-label="The full Bias-Aware AI Canvas: Gather, Compare and Respond stages with the trace into the AI and the three values" width="1920" height="1080" viewBox="0 0 1920 1080" xmlns:c2pa="http://c2pa.org/manifest">
+<defs><marker id="ar" markerUnits="userSpaceOnUse" markerWidth="16" markerHeight="16" refX="15" refY="8" orient="auto"><path d="M0,1 L15,8 L0,15 z" fill="#1F2A44"/></marker><marker id="ard" markerUnits="userSpaceOnUse" markerWidth="16" markerHeight="16" refX="15" refY="8" orient="auto"><path d="M0,1 L15,8 L0,15 z" fill="#0E8C98"/></marker></defs>
+<rect width="1920" height="1080" fill="#FFFFFF"/>
+<circle cx="74" cy="62" r="14" fill="#0E8C98"/>
+<text x="100.0" y="71.0" font-family="Calibri, Carlito, 'Segoe UI', Arial, sans-serif" font-size="25" font-weight="700" fill="#4F5866" text-anchor="start" letter-spacing="4">SOLUTION</text>
+<text x="60.0" y="142.0" font-family="Cambria, Georgia, serif" font-size="60" font-weight="700" fill="#1B1F2A" text-anchor="start">The Bias-Aware AI Canvas</text>
+<text x="60.0" y="184.0" font-family="Calibri, Carlito, 'Segoe UI', Arial, sans-serif" font-size="26" font-weight="400" fill="#4F5866" text-anchor="start">A draft canvas in three stages: used before deployment, revisited after it. Dots mark the three values. Conceptual, not yet tested.</text>
+<rect x="60" y="212" width="410" height="775" rx="24" fill="#EEF1F6"/>
+<circle cx="106" cy="259" r="27" fill="#0E8C98"/>
+<text x="106.0" y="270.0" font-family="Cambria, Georgia, serif" font-size="32" font-weight="700" fill="#FFFFFF" text-anchor="middle">1</text>
+<text x="150.0" y="271.0" font-family="Cambria, Georgia, serif" font-size="38" font-weight="700" fill="#1B1F2A" text-anchor="start">Gather</text>
+<text x="90.0" y="312.0" font-family="Calibri, Carlito, 'Segoe UI', Arial, sans-serif" font-size="23" font-weight="400" fill="#4F5866" text-anchor="start">How each side sees the situation</text>
+<rect x="510" y="212" width="780" height="775" rx="24" fill="#EEF1F6"/>
+<circle cx="556" cy="259" r="27" fill="#0E8C98"/>
+<text x="556.0" y="270.0" font-family="Cambria, Georgia, serif" font-size="32" font-weight="700" fill="#FFFFFF" text-anchor="middle">2</text>
+<text x="600.0" y="271.0" font-family="Cambria, Georgia, serif" font-size="38" font-weight="700" fill="#1B1F2A" text-anchor="start">Compare</text>
+<text x="540.0" y="312.0" font-family="Calibri, Carlito, 'Segoe UI', Arial, sans-serif" font-size="23" font-weight="400" fill="#4F5866" text-anchor="start">Lived accounts against the system view</text>
+<rect x="1330" y="212" width="530" height="775" rx="24" fill="#EEF1F6"/>
+<circle cx="1376" cy="259" r="27" fill="#0E8C98"/>
+<text x="1376.0" y="270.0" font-family="Cambria, Georgia, serif" font-size="32" font-weight="700" fill="#FFFFFF" text-anchor="middle">3</text>
+<text x="1420.0" y="271.0" font-family="Cambria, Georgia, serif" font-size="38" font-weight="700" fill="#1B1F2A" text-anchor="start">Respond</text>
+<text x="1360.0" y="312.0" font-family="Calibri, Carlito, 'Segoe UI', Arial, sans-serif" font-size="23" font-weight="400" fill="#4F5866" text-anchor="start">Make it public, check the answer</text>
+<rect x="105.0" y="340.0" width="350" height="175.0" rx="14" fill="#FFFFFF" stroke="#0E8C98" stroke-width="3"/>
+<text x="121.0" y="377.2" font-family="Calibri, Carlito, 'Segoe UI', Arial, sans-serif" font-size="27" font-weight="700" fill="#1B1F2A" text-anchor="start">Self-description</text>
+<text x="121.0" y="412.0" font-family="Calibri, Carlito, 'Segoe UI', Arial, sans-serif" font-size="22" font-weight="400" fill="#4F5866" text-anchor="start">Before the session, designers and</text>
+<text x="121.0" y="439.0" font-family="Calibri, Carlito, 'Segoe UI', Arial, sans-serif" font-size="22" font-weight="400" fill="#4F5866" text-anchor="start">policymakers declare their</text>
+<text x="121.0" y="466.0" font-family="Calibri, Carlito, 'Segoe UI', Arial, sans-serif" font-size="22" font-weight="400" fill="#4F5866" text-anchor="start">assumptions and flag uncertain</text>
+<text x="121.0" y="493.0" font-family="Calibri, Carlito, 'Segoe UI', Arial, sans-serif" font-size="22" font-weight="400" fill="#4F5866" text-anchor="start">points</text>
+<rect x="105.0" y="543.0" width="350" height="154.0" rx="14" fill="#FFFFFF" stroke="#0E8C98" stroke-width="3"/>
+<text x="121.0" y="580.2" font-family="Calibri, Carlito, 'Segoe UI', Arial, sans-serif" font-size="27" font-weight="700" fill="#1B1F2A" text-anchor="start">Co-design with marginalised</text>
+<text x="121.0" y="613.2" font-family="Calibri, Carlito, 'Segoe UI', Arial, sans-serif" font-size="27" font-weight="700" fill="#1B1F2A" text-anchor="start">groups</text>
+<text x="121.0" y="648.0" font-family="Calibri, Carlito, 'Segoe UI', Arial, sans-serif" font-size="22" font-weight="400" fill="#4F5866" text-anchor="start">How do they perceive AI from their</text>
+<text x="121.0" y="675.0" font-family="Calibri, Carlito, 'Segoe UI', Arial, sans-serif" font-size="22" font-weight="400" fill="#4F5866" text-anchor="start">own situation?</text>
+<circle cx="449.0" cy="545.0" r="11" fill="#2F4B7C" stroke="#FFFFFF" stroke-width="3"/>
+<circle cx="423.0" cy="545.0" r="11" fill="#D1495B" stroke="#FFFFFF" stroke-width="3"/>
+<rect x="105.0" y="725.0" width="350" height="61.0" rx="14" fill="#FFFFFF" stroke="#0E8C98" stroke-width="3"/>
+<text x="121.0" y="762.2" font-family="Calibri, Carlito, 'Segoe UI', Arial, sans-serif" font-size="27" font-weight="700" fill="#1B1F2A" text-anchor="start">Plural stakeholder views</text>
+<rect x="105.0" y="818.0" width="350" height="145.0" rx="14" fill="#FFFFFF" stroke="#E8A33D" stroke-width="3" stroke-dasharray="9 7"/>
+<text x="121.0" y="854.0" font-family="Calibri, Carlito, 'Segoe UI', Arial, sans-serif" font-size="22" font-weight="700" fill="#1B1F2A" text-anchor="start">CHECK</text>
+<text x="121.0" y="889.2" font-family="Calibri, Carlito, 'Segoe UI', Arial, sans-serif" font-size="21" font-weight="400" fill="#4F5866" text-anchor="start">Do participants from marginalised</text>
+<text x="121.0" y="915.2" font-family="Calibri, Carlito, 'Segoe UI', Arial, sans-serif" font-size="21" font-weight="400" fill="#4F5866" text-anchor="start">groups get the same value for their</text>
+<text x="121.0" y="941.2" font-family="Calibri, Carlito, 'Segoe UI', Arial, sans-serif" font-size="21" font-weight="400" fill="#4F5866" text-anchor="start">time as other stakeholders?</text>
+<path d="M105.0,427.5 L82,427.5 L82,755.5" fill="none" stroke="#1F2A44" stroke-width="3" stroke-linejoin="round" stroke-linecap="round"/>
+<path d="M82,620.0 L104.0,620.0" fill="none" stroke="#1F2A44" stroke-width="3" stroke-linejoin="round" stroke-linecap="round" marker-end="url(#ar)"/>
+<path d="M82,755.5 L104.0,755.5" fill="none" stroke="#1F2A44" stroke-width="3" stroke-linejoin="round" stroke-linecap="round" marker-end="url(#ar)"/>
+<path d="M280.0,786.0 L280.0,818.0" fill="none" stroke="#E8A33D" stroke-width="3" stroke-linejoin="round" stroke-linecap="round" stroke-dasharray="10 8" marker-end="url(#ard)"/>
+<rect x="920.0" y="340.0" width="345" height="119.0" rx="14" fill="#FCEFD6" stroke="#E8A33D" stroke-width="3"/>
+<text x="936.0" y="377.2" font-family="Calibri, Carlito, 'Segoe UI', Arial, sans-serif" font-size="27" font-weight="700" fill="#1B1F2A" text-anchor="start">Compare and ask why</text>
+<text x="936.0" y="411.2" font-family="Calibri, Carlito, 'Segoe UI', Arial, sans-serif" font-size="21" font-weight="400" fill="#4F5866" text-anchor="start">Not: which one is correct? No gap:</text>
+<text x="936.0" y="437.2" font-family="Calibri, Carlito, 'Segoe UI', Arial, sans-serif" font-size="21" font-weight="400" fill="#4F5866" text-anchor="start">record and move on.</text>
+<rect x="920.0" y="481.0" width="345" height="94.0" rx="14" fill="#FFFFFF" stroke="#0E8C98" stroke-width="3"/>
+<text x="936.0" y="517.8" font-family="Calibri, Carlito, 'Segoe UI', Arial, sans-serif" font-size="25" font-weight="700" fill="#1B1F2A" text-anchor="start">Hidden corner, or hidden bias</text>
+<text x="936.0" y="550.8" font-family="Calibri, Carlito, 'Segoe UI', Arial, sans-serif" font-size="25" font-weight="700" fill="#1B1F2A" text-anchor="start">of designers or policymakers?</text>
+<rect x="920.0" y="597.0" width="345" height="145.0" rx="14" fill="#F1EAF9" stroke="#7B4FB3" stroke-width="3"/>
+<text x="936.0" y="634.2" font-family="Calibri, Carlito, 'Segoe UI', Arial, sans-serif" font-size="27" font-weight="700" fill="#1B1F2A" text-anchor="start">Trace it into the AI</text>
+<text x="936.0" y="668.2" font-family="Calibri, Carlito, 'Segoe UI', Arial, sans-serif" font-size="21" font-weight="400" fill="#4F5866" text-anchor="start">Where do data or decision logic</text>
+<text x="936.0" y="694.2" font-family="Calibri, Carlito, 'Segoe UI', Arial, sans-serif" font-size="21" font-weight="400" fill="#4F5866" text-anchor="start">assume otherwise? How many</text>
+<text x="936.0" y="720.2" font-family="Calibri, Carlito, 'Segoe UI', Arial, sans-serif" font-size="21" font-weight="400" fill="#4F5866" text-anchor="start">decisions does it touch?</text>
+<circle cx="1259.0" cy="599.0" r="11" fill="#7B4FB3" stroke="#FFFFFF" stroke-width="3"/>
+<rect x="920.0" y="764.0" width="345" height="119.0" rx="14" fill="#FFFFFF" stroke="#0E8C98" stroke-width="3"/>
+<text x="936.0" y="801.2" font-family="Calibri, Carlito, 'Segoe UI', Arial, sans-serif" font-size="27" font-weight="700" fill="#1B1F2A" text-anchor="start">Report the gap</text>
+<text x="936.0" y="835.2" font-family="Calibri, Carlito, 'Segoe UI', Arial, sans-serif" font-size="21" font-weight="400" fill="#4F5866" text-anchor="start">to designers and policymakers, with</text>
+<text x="936.0" y="861.2" font-family="Calibri, Carlito, 'Segoe UI', Arial, sans-serif" font-size="21" font-weight="400" fill="#4F5866" text-anchor="start">the consequences of their decisions</text>
+<rect x="535.0" y="559.5" width="290" height="121.0" rx="14" fill="#FFFFFF" stroke="#0E8C98" stroke-width="3"/>
+<text x="551.0" y="596.8" font-family="Calibri, Carlito, 'Segoe UI', Arial, sans-serif" font-size="27" font-weight="700" fill="#1B1F2A" text-anchor="start">Open coding</text>
+<text x="551.0" y="631.5" font-family="Calibri, Carlito, 'Segoe UI', Arial, sans-serif" font-size="22" font-weight="400" fill="#4F5866" text-anchor="start">of the co-design material, by</text>
+<text x="551.0" y="658.5" font-family="Calibri, Carlito, 'Segoe UI', Arial, sans-serif" font-size="22" font-weight="400" fill="#4F5866" text-anchor="start">the facilitator</text>
+<rect x="535.0" y="708.5" width="290" height="94.0" rx="14" fill="#FFFFFF" stroke="#0E8C98" stroke-width="3"/>
+<text x="551.0" y="745.8" font-family="Calibri, Carlito, 'Segoe UI', Arial, sans-serif" font-size="27" font-weight="700" fill="#1B1F2A" text-anchor="start">Map of actors</text>
+<text x="551.0" y="780.5" font-family="Calibri, Carlito, 'Segoe UI', Arial, sans-serif" font-size="22" font-weight="400" fill="#4F5866" text-anchor="start">Roles and interdependencies</text>
+<path d="M455.0,620.0 L534.0,620.0" fill="none" stroke="#1F2A44" stroke-width="3" stroke-linejoin="round" stroke-linecap="round" marker-end="url(#ar)"/>
+<path d="M455.0,755.5 L534.0,755.5" fill="none" stroke="#1F2A44" stroke-width="3" stroke-linejoin="round" stroke-linecap="round" marker-end="url(#ar)"/>
+<path d="M825.0,620.0 L872,620.0 L872,399.5" fill="none" stroke="#1F2A44" stroke-width="3" stroke-linejoin="round" stroke-linecap="round"/>
+<path d="M825.0,755.5 L872,755.5 L872,620.0" fill="none" stroke="#1F2A44" stroke-width="3" stroke-linejoin="round" stroke-linecap="round"/>
+<path d="M872,399.5 L919.0,399.5" fill="none" stroke="#1F2A44" stroke-width="3" stroke-linejoin="round" stroke-linecap="round" marker-end="url(#ar)"/>
+<path d="M1092.5,459.0 L1092.5,481.0" fill="none" stroke="#1F2A44" stroke-width="3" stroke-linejoin="round" stroke-linecap="round" marker-end="url(#ar)"/>
+<path d="M1092.5,575.0 L1092.5,597.0" fill="none" stroke="#1F2A44" stroke-width="3" stroke-linejoin="round" stroke-linecap="round" marker-end="url(#ar)"/>
+<path d="M1092.5,742.0 L1092.5,764.0" fill="none" stroke="#1F2A44" stroke-width="3" stroke-linejoin="round" stroke-linecap="round" marker-end="url(#ar)"/>
+<text x="539.0" y="362.2" font-family="Calibri, Carlito, 'Segoe UI', Arial, sans-serif" font-size="21" font-weight="400" fill="#4F5866" text-anchor="start" font-style="italic">Comparison and map inform</text>
+<text x="539.0" y="388.2" font-family="Calibri, Carlito, 'Segoe UI', Arial, sans-serif" font-size="21" font-weight="400" fill="#4F5866" text-anchor="start" font-style="italic">each other, so the map is</text>
+<text x="539.0" y="414.2" font-family="Calibri, Carlito, 'Segoe UI', Arial, sans-serif" font-size="21" font-weight="400" fill="#4F5866" text-anchor="start" font-style="italic">revisited as the comparison</text>
+<text x="539.0" y="440.2" font-family="Calibri, Carlito, 'Segoe UI', Arial, sans-serif" font-size="21" font-weight="400" fill="#4F5866" text-anchor="start" font-style="italic">develops</text>
+<rect x="1360.0" y="340.0" width="470" height="61.0" rx="14" fill="#FFFFFF" stroke="#0E8C98" stroke-width="3"/>
+<text x="1376.0" y="377.2" font-family="Calibri, Carlito, 'Segoe UI', Arial, sans-serif" font-size="27" font-weight="700" fill="#1B1F2A" text-anchor="start">Public board</text>
+<rect x="1360.0" y="419.0" width="470" height="94.0" rx="14" fill="#FFFFFF" stroke="#0E8C98" stroke-width="3"/>
+<text x="1376.0" y="456.2" font-family="Calibri, Carlito, 'Segoe UI', Arial, sans-serif" font-size="27" font-weight="700" fill="#1B1F2A" text-anchor="start">Moral norm for the response</text>
+<text x="1376.0" y="491.0" font-family="Calibri, Carlito, 'Segoe UI', Arial, sans-serif" font-size="22" font-weight="400" fill="#4F5866" text-anchor="start">How policymakers interpret and answer</text>
+<rect x="1360.0" y="531.0" width="470" height="61.0" rx="14" fill="#FFFFFF" stroke="#0E8C98" stroke-width="3"/>
+<text x="1376.0" y="568.2" font-family="Calibri, Carlito, 'Segoe UI', Arial, sans-serif" font-size="27" font-weight="700" fill="#1B1F2A" text-anchor="start">Policymaker answer</text>
+<rect x="1360.0" y="610.0" width="470" height="94.0" rx="14" fill="#FFFFFF" stroke="#0E8C98" stroke-width="3"/>
+<text x="1376.0" y="647.2" font-family="Calibri, Carlito, 'Segoe UI', Arial, sans-serif" font-size="27" font-weight="700" fill="#1B1F2A" text-anchor="start">Joint check after a set period</text>
+<text x="1376.0" y="682.0" font-family="Calibri, Carlito, 'Segoe UI', Arial, sans-serif" font-size="22" font-weight="400" fill="#4F5866" text-anchor="start">Designers and the people affected</text>
+<circle cx="1824.0" cy="612.0" r="11" fill="#2F4B7C" stroke="#FFFFFF" stroke-width="3"/>
+<rect x="1360.0" y="722.0" width="470" height="61.0" rx="14" fill="#FCEFD6" stroke="#E8A33D" stroke-width="3"/>
+<text x="1376.0" y="759.2" font-family="Calibri, Carlito, 'Segoe UI', Arial, sans-serif" font-size="27" font-weight="700" fill="#1B1F2A" text-anchor="start">Still valuable to those affected?</text>
+<rect x="1360.0" y="823.0" width="223" height="145.0" rx="14" fill="#FFFFFF" stroke="#0E8C98" stroke-width="3"/>
+<text x="1376.0" y="860.2" font-family="Calibri, Carlito, 'Segoe UI', Arial, sans-serif" font-size="27" font-weight="700" fill="#1B1F2A" text-anchor="start">Yes</text>
+<text x="1376.0" y="894.2" font-family="Calibri, Carlito, 'Segoe UI', Arial, sans-serif" font-size="21" font-weight="400" fill="#4F5866" text-anchor="start">Macro stage:</text>
+<text x="1376.0" y="920.2" font-family="Calibri, Carlito, 'Segoe UI', Arial, sans-serif" font-size="21" font-weight="400" fill="#4F5866" text-anchor="start">institutional work to</text>
+<text x="1376.0" y="946.2" font-family="Calibri, Carlito, 'Segoe UI', Arial, sans-serif" font-size="21" font-weight="400" fill="#4F5866" text-anchor="start">reduce bias</text>
+<rect x="1607.0" y="823.0" width="223" height="119.0" rx="14" fill="#FFFFFF" stroke="#0E8C98" stroke-width="3"/>
+<text x="1623.0" y="860.2" font-family="Calibri, Carlito, 'Segoe UI', Arial, sans-serif" font-size="27" font-weight="700" fill="#1B1F2A" text-anchor="start">No</text>
+<text x="1623.0" y="894.2" font-family="Calibri, Carlito, 'Segoe UI', Arial, sans-serif" font-size="21" font-weight="400" fill="#4F5866" text-anchor="start">Return to Stage 2 and</text>
+<text x="1623.0" y="920.2" font-family="Calibri, Carlito, 'Segoe UI', Arial, sans-serif" font-size="21" font-weight="400" fill="#4F5866" text-anchor="start">refine the actor map</text>
+<path d="M1595.0,401.0 L1595.0,419.0" fill="none" stroke="#1F2A44" stroke-width="3" stroke-linejoin="round" stroke-linecap="round" marker-end="url(#ar)"/>
+<path d="M1595.0,513.0 L1595.0,531.0" fill="none" stroke="#1F2A44" stroke-width="3" stroke-linejoin="round" stroke-linecap="round" marker-end="url(#ar)"/>
+<path d="M1595.0,592.0 L1595.0,610.0" fill="none" stroke="#1F2A44" stroke-width="3" stroke-linejoin="round" stroke-linecap="round" marker-end="url(#ar)"/>
+<path d="M1595.0,704.0 L1595.0,722.0" fill="none" stroke="#1F2A44" stroke-width="3" stroke-linejoin="round" stroke-linecap="round" marker-end="url(#ar)"/>
+<path d="M1595.0,783.0 L1595.0,803.0 L1471.5,803.0" fill="none" stroke="#1F2A44" stroke-width="3" stroke-linejoin="round" stroke-linecap="round"/>
+<path d="M1471.5,803.0 L1471.5,823.0" fill="none" stroke="#1F2A44" stroke-width="3" stroke-linejoin="round" stroke-linecap="round" marker-end="url(#ar)"/>
+<path d="M1595.0,803.0 L1718.5,803.0 L1718.5,823.0" fill="none" stroke="#1F2A44" stroke-width="3" stroke-linejoin="round" stroke-linecap="round" marker-end="url(#ar)"/>
+<path d="M1265.0,823.5 L1310,823.5 L1310,370.5 L1359.0,370.5" fill="none" stroke="#1F2A44" stroke-width="3" stroke-linejoin="round" stroke-linecap="round" marker-end="url(#ar)"/>
+<path d="M1718.5,942.0 L1718.5,1030 L680.0,1030 L680.0,804.5" fill="none" stroke="#0E8C98" stroke-width="3" stroke-linejoin="round" stroke-linecap="round" stroke-dasharray="10 8" marker-end="url(#ard)"/>
+<text x="700.0" y="1020.0" font-family="Calibri, Carlito, 'Segoe UI', Arial, sans-serif" font-size="23" font-weight="400" fill="#0E8C98" text-anchor="start" font-style="italic">No: refine the actor map, then repeat the comparison</text>
+<circle cx="71" cy="1060" r="11" fill="#2F4B7C"/>
+<text x="90.0" y="1068.0" font-family="Calibri, Carlito, 'Segoe UI', Arial, sans-serif" font-size="23" font-weight="400" fill="#4F5866" text-anchor="start">Co-creation</text>
+<circle cx="249" cy="1060" r="11" fill="#D1495B"/>
+<text x="268.1" y="1068.0" font-family="Calibri, Carlito, 'Segoe UI', Arial, sans-serif" font-size="23" font-weight="400" fill="#4F5866" text-anchor="start">Edge-case prioritisation</text>
+<circle cx="537" cy="1060" r="11" fill="#7B4FB3"/>
+<text x="556.8" y="1068.0" font-family="Calibri, Carlito, 'Segoe UI', Arial, sans-serif" font-size="23" font-weight="400" fill="#4F5866" text-anchor="start">Algorithmic transparency</text>
+
+</svg></div>
+      </section>
+
+      <section class="block" id="test">
+        <h2>Test the canvas on a scenario</h2>
+        <p>Walk a case through the canvas, one step at a time. The example is invented for illustration and is not data from any real service. You can switch to your own scenario and type your answers.</p>
+        <div class="ctl" role="group" aria-label="Scenario mode">
+          <button type="button" class="seg on" data-mode="example">Example scenario</button>
+          <button type="button" class="seg" data-mode="own">My own scenario</button>
+        </div>
+        <ol class="prog" id="sc-prog" aria-label="Progress"></ol>
+        <div class="sc-card" id="sc-card" aria-live="polite"></div>
+      </section>
+
+      <section class="block">
+        <h2>Three proposed values</h2>
+        <div class="values">
+          <div class="val" style="--c:var(--blue)"><h3>Co-creation</h3><p>Designers, policymakers and citizen representatives work together, and people define their own needs.</p></div>
+          <div class="val" style="--c:var(--red)"><h3>Edge-case prioritisation</h3><p>Start from who is easiest to miss, across the micro, meso and macro layers.</p></div>
+          <div class="val" style="--c:var(--purple)"><h3>Algorithmic transparency</h3><p>Make data and decision logic visible and open to challenge.</p></div>
+        </div>
+        <p class="note" style="margin-top:28px">The canvas does not remove bias. Its job is to make hidden assumptions visible early, and open to discussion by the people affected.</p>
+      </section>
+    </div>
+
+    <!-- TALKS -->
+    <div data-view id="v-talks">
+      <p class="eyebrow">Dissemination</p>
+      <h1>Conference presentations</h1>
+      <ul class="timeline" style="margin-top:36px">
+        <li>
+          <time>26–28 Apr 2027 <span class="tag plan">Accepted</span></time>
+          <div><h3>Nordes 2027: Planetary Design</h3>
+          <p style="margin:0 0 12px">Rovaniemi, Finland. Contribution accepted. The planned work is a first test of the Bias-Aware AI Canvas, after a systematic literature review and a small simulated workshop.</p>
+          <figure style="margin:16px 0 0;max-width:440px"><img src="photos/nordes2027.jpg" alt="Nordes 2027 conference graphic: Planetary Design, Rovaniemi, Finland, 26 to 28 April 2027" loading="lazy" style="display:block;width:100%;height:auto;border-radius:10px;border:1px solid var(--line)"><figcaption style="font-size:14px;color:var(--muted);margin-top:8px">Conference graphic. Image: Nordes 2027.</figcaption></figure></div>
+        </li>
+        <li>
+          <time>13 Nov 2026</time>
+          <div><h3>From Uncalibrated Empathy to Systemic Bias: The AI Multiplier Effect in Public Service Design</h3>
+          <p style="margin:0 0 12px">Inaugural Conference of the Munich Design Institute (MDI), Technical University of Munich. 20-minute talk in the Emerging Technologies focus area.</p>
+          <p style="color:var(--muted);font-size:16px">The talk introduced <i>uncalibrated empathy</i>: the tendency of empathic design to tune its understanding to one group, often the most visible one. It argued that when AI is built on such designs, the resulting blind spot is encoded in data and decision logic and repeated at algorithmic scale, which I call the AI Multiplier Effect. It used the micro, meso and macro layers to locate where a blind spot can enter, framed autonomy as a person's ability to notice, question and correct a decision about them, and presented the Bias-Aware AI Canvas as a draft, untested design-stage instrument. It was a pleasure to take part in the inaugural conference, and the exchange with fellow speakers and the audience was stimulating.</p>
+          <div class="gallery" style="margin-top:22px">
+            <figure class="tall"><img src="photos/talk3.jpg" alt="Panel on Emerging Technologies at the MDI conference, with five speakers in front of the screen and the audience in the foreground" loading="lazy"><figcaption>Focus Area 3, Emerging Technologies, Munich Design Institute conference, 13 November 2026.</figcaption></figure>
+            <div class="stack">
+              <figure><img src="photos/talk1.jpg" alt="Presenting the slide on the AI Multiplier Effect: blind spot, encoded, multiplied" loading="lazy"><figcaption>Presenting the AI Multiplier Effect.</figcaption></figure>
+              <figure><img src="photos/talk2.jpg" alt="The closing takeaways slide, with the audience in the foreground" loading="lazy"><figcaption>Closing takeaways.</figcaption></figure>
+            </div>
+          </div>
+          <p style="font-size:14px;color:var(--muted);margin:14px 0 0">Photos: Annette Diefenthaler and Amalie Ernst, MDI.</p><p style="font-size:14px;color:var(--muted);margin:10px 0 0">Travel to this conference was supported by Business Finland (DILEC project, grant number: 953/31/2025).</p></div>
+        </li>
+      </ul>
+
+    </div>
+
+    <!-- EARLIER RESEARCH -->
+    <div data-view id="v-earlier">
+      <p class="eyebrow">Earlier research</p>
+      <h1>Earlier research projects</h1>
+      <section style="margin-top:28px">
+        <p>Two earlier research reports on human-centred technology, presented as short papers with diagrams and an interactive exercise.</p>
+        <div class="rcards">
+          <a class="rcard" href="#euroduc">
+            <svg viewBox="0 0 320 150" role="img" aria-label="Thumbnail: a grid of clips with a few highlighted above a timeline"><g class="dg"><rect x="20" y="16" width="36" height="24" rx="3" fill="var(--blue)" opacity=".35"/><rect x="62" y="16" width="36" height="24" rx="3" fill="var(--red)"/><rect x="104" y="16" width="36" height="24" rx="3" fill="var(--blue)" opacity=".35"/><rect x="146" y="16" width="36" height="24" rx="3" fill="var(--red)"/><rect x="188" y="16" width="36" height="24" rx="3" fill="var(--blue)" opacity=".35"/><rect x="230" y="16" width="36" height="24" rx="3" fill="var(--blue)" opacity=".35"/><rect x="272" y="16" width="28" height="24" rx="3" fill="var(--blue)" opacity=".35"/><rect x="20" y="48" width="36" height="24" rx="3" fill="var(--blue)" opacity=".35"/><rect x="62" y="48" width="36" height="24" rx="3" fill="var(--blue)" opacity=".35"/><rect x="104" y="48" width="36" height="24" rx="3" fill="var(--red)"/><rect x="146" y="48" width="36" height="24" rx="3" fill="var(--blue)" opacity=".35"/><path d="M20 112H300" stroke="var(--muted)" stroke-width="2"/><circle cx="62" cy="112" r="6" fill="var(--red)"/><circle cx="146" cy="112" r="6" fill="var(--purple)"/><circle cx="230" cy="112" r="6" fill="var(--teal)"/><circle cx="290" cy="112" r="6" fill="var(--amber)"/></g></svg>
+            <small>Research report · Digital Design</small>
+            <h3>Euroduc: refining algorithmic tools for European policing</h3>
+            <p>Why agencies resist new technology, and a filter and timeline prototype shaped by a police officer and an analyst at a European security agency.</p>
+            <span>Read the paper &rarr;</span>
+          </a>
+          <a class="rcard" href="#openhouse">
+            <svg viewBox="0 0 320 150" role="img" aria-label="Thumbnail: a room with two side walls, a central wall and a coloured floor"><g><rect x="60" y="12" width="200" height="126" rx="6" fill="none" stroke="var(--line)" stroke-width="2"/><rect x="60" y="30" width="8" height="90" fill="var(--blue)"/><rect x="252" y="30" width="8" height="90" fill="var(--red)"/><rect x="86" y="12" width="148" height="8" fill="var(--purple)"/><ellipse cx="160" cy="86" rx="62" ry="32" fill="var(--teal)" opacity=".25"/><rect x="142" y="76" width="36" height="20" rx="4" fill="var(--bg)" stroke="var(--amber)" stroke-width="2"/></g></svg>
+            <small>Research report · Interactive installation</small>
+            <h3>OPEN HOUSE: designing emotional connection through interactive narratives</h3>
+            <p>An installation where two people blend personal videos of &ldquo;home&rdquo; into one narrative, tested with 20 students.</p>
+            <span>Read the paper &rarr;</span>
+          </a>
+        </div>
+      </section>
+    </div>
+
+    <!-- EURODUC -->
+    <div data-view id="v-euroduc">
+      <p class="eyebrow"><a class="back" href="#earlier">&larr; Earlier research</a></p>
+      <article class="paper">
+        <h1>Refining algorithmic tools for European policing: the design of Euroduc</h1>
+        <p class="meta">Danial Alemasoum · MSc Digital Design, Amsterdam University of Applied Sciences (HvA), 2024–2025<br>Research report from a team project, adapted for the web</p>
+
+        <div class="abs">
+          <h2>Abstract</h2>
+          <p>Police departments handle growing volumes of data, including criminal reports, CCTV footage and social media content, and manual review is increasingly impractical. This report asks how refining algorithms can improve the efficiency, speed and safety of police work while addressing the resistance to adopting new technologies in European law enforcement. A qualitative design-research approach combined an interview with a Swedish police officer, a task-based user test with a data analyst at a European security agency, a literature review, and an analysis of software for law enforcement and private security. Agencies appear to favour older, proven systems because of concerns about safety, privacy, reliability and retraining, and restricted hardware policies make data sharing a practical bottleneck. These insights shaped Euroduc, a prototype with e-commerce-inspired filtering and a collaborative Timeline with role-based access and traceable actions. The evidence base is small, so the findings are indicative rather than general.</p>
+          <p class="kw">Keywords: smart policing · algorithmic transparency · design research · technology adoption · human-centred tools</p>
+        </div>
+
+        <h2 class="n">Introduction</h2>
+        <p>Police departments handle large and growing volumes of data. Reviewing it by hand takes considerable manpower, and time management is a recognised factor in crisis response (Police Executive Research Forum, 2022). Machine learning (ML) and natural language processing offer help in this area (Sarzaeim et al., 2023), yet many European agencies hesitate to adopt new technology.</p>
+        <p><em>Research question.</em> How can refining algorithms improve the efficiency, speed and safety of police work while addressing the resistance to adopting new technologies in European law enforcement agencies?</p>
+        <p>The project has two parts: an inquiry into the barriers to adoption, and the design of Euroduc, a prototype that responds to what the inquiry found. Data collection was constrained. Several police innovation labs in Europe declined interview requests, citing security and privacy concerns.</p>
+
+        <h2 class="n">Related work</h2>
+        <p><strong>Smart policing.</strong> Sarzaeim et al. (2023) review ML and NLP applications in policing, such as crime statistics analysis, predictive crime mapping and facial recognition. They stress that algorithmic models must give consistent and explainable results to support trust and accountability.</p>
+        <p><strong>Transparency and bias.</strong> Algopol (2020) highlights the risks of algorithmic bias and misuse of sensitive police data, and argues that AI judgements cannot be trusted when it is unclear how conclusions are reached. A framework for LLM-assisted smart policing (2024) tests models such as BART, GPT-3 and GPT-4 for crime prediction with zero-shot prompting, few-shot prompting and fine-tuning. It reports efficiency potential, but stresses fine-tuning to limit bias and the need for transparent, accountable algorithms.</p>
+        <p><strong>Barriers to adoption.</strong> Statewatch (2024) points to limited testing of new technologies, the potential for system failures and associated safety risks, and privacy and security risks linked to planned expansion of police data sharing in the European Union.</p>
+        <p><strong>Evidence and accountability.</strong> Meijer and Wessels (2019) review the benefits and drawbacks of predictive policing and conclude that current initiatives rest more on convincing arguments and anecdotal evidence than on systematic research: some studies report crime reductions and others no effect. Bennett Moses and Chan (2018) raise three issues, namely the assumptions built into algorithmic prediction, the lack of independent evaluation and the accountability gap in how decisions made with such tools can be justified. Rudin (2019) argues that for high-stakes decisions, inherently interpretable models should be preferred over explaining black-box models afterwards.</p>
+        <p><strong>Practitioners' stance.</strong> Sandhu and Fussey (2021) studied how UK police work with predictive tools and found that many officers understand the limits of the input data, are sceptical, and keep exercising their own judgement. This is consistent with the hesitation reported by the interviewed officer.</p>
+        <p><strong>Interaction precedents.</strong> Platforms with very large inventories, such as Freepik, Temu and Shein, manage them with simple tagging and filtering. This pattern informed the search design.</p>
+
+        <h2 class="n">Method</h2>
+        <p>The approach follows design research, in which an artefact is designed and evaluated for its utility (Hevner et al., 2004). Three methods were combined and compared against each other (Figure 1).</p>
+        <h3>Interview</h3>
+        <p>One interview with a Swedish police officer with more than eight years of experience, who asked to remain anonymous. Prepared questions guided a discussion of the efficiency of current police algorithms, areas for improvement and challenges in policing technology.</p>
+        <h3>Task-based user test</h3>
+        <p>A group session with a data analyst at a European security agency. The team prepared a case-solving game (<em>A Solved Case</em>, Criminal Case Games) and asked the analyst to work through it using the prototype's labelling and timeline tools. The aim was not to solve the case but to observe how the tools were used and whether users needed them.</p>
+        <h3>Literature and market analysis</h3>
+        <p>A review of academic and policy sources on algorithmic policing, and an analysis of companies developing software for law enforcement and private security.</p>
+        <h3>Ethical considerations</h3>
+        <p>The main concerns were algorithmic bias, misuse of sensitive police data and transparency. Collected data was anonymised and stored securely.</p>
+
+        <figure class="fig">
+          <div class="dia"><svg class="dg" viewBox="0 0 720 200" role="img" aria-label="Research design: three inputs feed a design synthesis, then the Euroduc prototype, which is user tested with a security-agency analyst and iterated.">
+            <defs><marker id="me1" viewBox="0 0 10 10" refX="8" refY="5" markerWidth="7" markerHeight="7" orient="auto"><path d="M0 0L10 5L0 10z" class="arh"/></marker></defs>
+            <rect class="box s1" x="10" y="10" width="190" height="50" rx="8"/><text class="b" x="105" y="40" text-anchor="middle">Literature review</text>
+            <rect class="box s1" x="10" y="75" width="190" height="50" rx="8"/><text class="b" x="105" y="96" text-anchor="middle">Interview</text><text class="m" x="105" y="113" text-anchor="middle">Swedish police officer</text>
+            <rect class="box s1" x="10" y="140" width="190" height="50" rx="8"/><text class="b" x="105" y="158" text-anchor="middle">Software and market analysis</text><text class="m" x="105" y="175" text-anchor="middle">law enforcement, e-commerce</text>
+            <path class="ln" d="M200 35C225 35 225 100 250 100" marker-end="url(#me1)"/><path class="ln" d="M200 100H248" marker-end="url(#me1)"/><path class="ln" d="M200 165C225 165 225 100 250 100" marker-end="url(#me1)"/>
+            <rect class="box s3" x="250" y="60" width="130" height="80" rx="8"/><text class="b" x="315" y="96" text-anchor="middle">Design</text><text class="b" x="315" y="113" text-anchor="middle">synthesis</text>
+            <path class="ln" d="M380 100H418" marker-end="url(#me1)"/>
+            <rect class="box s2" x="420" y="60" width="120" height="80" rx="8"/><text class="b" x="480" y="96" text-anchor="middle">Euroduc</text><text class="m" x="480" y="113" text-anchor="middle">prototype</text>
+            <rect class="box s4" x="570" y="10" width="140" height="70" rx="8"/><text class="b" x="640" y="36" text-anchor="middle">User test</text><text class="m" x="640" y="53" text-anchor="middle">Security-agency analyst,</text><text class="m" x="640" y="68" text-anchor="middle">case-solving game</text>
+            <rect class="box s5" x="570" y="115" width="140" height="75" rx="8"/><text class="b" x="640" y="139" text-anchor="middle">Iteration</text><text class="m" x="640" y="156" text-anchor="middle">access control,</text><text class="m" x="640" y="171" text-anchor="middle">hierarchy, custom tags</text>
+            <path class="ln" d="M540 85L568 55" marker-end="url(#me1)"/><path class="ln" d="M640 80V113" marker-end="url(#me1)"/><path class="ln" d="M570 152L542 118" marker-end="url(#me1)"/>
+          </svg></div>
+          <figcaption><b>Figure 1.</b> Research design. Evidence from three sources informed a prototype, which was tested and revised.</figcaption>
+        </figure>
+
+        <figure class="fig">
+          <div class="bars" role="img" aria-label="Bar chart of sources in the report: practitioner sessions 2, literature and policy sources 5, design precedents 3">
+            <div class="bar"><span>Practitioner sessions</span><i style="width:40%;--c:var(--red)"></i><b>2</b></div>
+            <div class="bar"><span>Literature and policy sources</span><i style="width:100%;--c:var(--blue)"></i><b>5</b></div>
+            <div class="bar"><span>Design precedents</span><i style="width:60%;--c:var(--teal)"></i><b>3</b></div>
+          </div>
+          <figcaption><b>Figure 2.</b> Evidence base of the report, by type (counts of items cited). Practitioner evidence rests on one interview and one user test.</figcaption>
+        </figure>
+
+        <h2 class="n">Findings</h2>
+        <h3>Preference for proven systems</h3>
+        <p>Agencies tend to rely on older systems because they are proven safe and reliable. The interviewed officer noted that ML is rarely used and gave the example of ATMS, which often use outdated but dependable software. Moving to new technology brings the risk of failures and the need for extensive retraining, which costs time and resources. Concerns that ML could reinforce existing biases and raise privacy risks add to the hesitation.</p>
+        <h3>Data sharing as a hidden bottleneck</h3>
+        <p>The officer described how restrictions on USB sticks and other portable hardware force officers to print data, which makes it hard to share information quickly with colleagues. This led to the Timeline feature.</p>
+        <h3>User test</h3>
+        <p>The analyst started with labelling, which worked well: he could categorise all the data he needed and remove irrelevant material. The Timeline was welcomed for sharing, but he stressed that hierarchy is important, since no tool allowed restricting the next officer from seeing certain notes.</p>
+        <h3>Literature</h3>
+        <p>The sources agree on one design requirement: AI output cannot be trusted when its reasoning is opaque. Transparency and explainability therefore became design principles.</p>
+
+        <figure class="fig">
+          <div class="trace">
+            <div class="tr"><div><small>Interview</small>Restricted hardware, data printed on paper</div><div class="ar2">&rarr;</div><div><small>Design response</small>Timeline: shared, chronological, drag and drop</div></div>
+            <div class="tr"><div><small>User test</small>Hierarchy matters; notes may need hiding</div><div class="ar2">&rarr;</div><div><small>Design response</small>Role-based access control</div></div>
+            <div class="tr"><div><small>Literature, policy</small>Large data volumes, time pressure</div><div class="ar2">&rarr;</div><div><small>Design response</small>Filters by action, people and vehicles</div></div>
+            <div class="tr"><div><small>Literature</small>Opaque AI cannot be trusted</div><div class="ar2">&rarr;</div><div><small>Design response</small>Logged, traceable filtering</div></div>
+            <div class="tr"><div><small>User feedback</small>Investigations differ</div><div class="ar2">&rarr;</div><div><small>Design response</small>User-defined tags</div></div>
+            <div class="tr"><div><small>Interview, Statewatch</small>Safety, reliability and retraining concerns</div><div class="ar2">&rarr;</div><div><small>Design response</small>Refine rather than replace; secure internal network</div></div>
+          </div>
+          <figcaption><b>Figure 3.</b> Traceability from evidence to design decisions.</figcaption>
+        </figure>
+
+        <h2 class="n">Design: Euroduc</h2>
+        <p><strong>Filtering.</strong> Officers filter material by action (for example walking or running), by presence of people and by presence of vehicles, using simple toggles. For a robbery, an officer can reduce thousands of surveillance clips to those where a suspect is seen running.</p>
+        <p><strong>Timeline.</strong> Officers drag footage, text reports and videos into a chronological structure, add personal notes, restrict access to some items and share securely inside the software. The next officer sees the steps already taken, which supports handover.</p>
+        <p><strong>Principles.</strong> <em>Transparency:</em> filtering actions and results are logged and traceable, so officers can see why results appear. <em>Bias mitigation:</em> filters use objective criteria such as movement patterns and environmental context, not demographics, race or personal identifiers. <em>Security:</em> the tool runs inside a secure internal network, avoiding USB transfers and third-party cloud tools.</p>
+        <p><strong>Iterations after testing.</strong> Role-based access control, a hierarchical Timeline structure, and a user-defined tagging system so that tags can be adapted to different investigations.</p>
+
+        <figure class="fig">
+          <div class="dia"><svg class="dg" viewBox="0 0 720 290" role="img" aria-label="Euroduc architecture: data sources feed a filter, then a timeline with role-based access, then handover, all inside a secure internal network with an audit log.">
+            <defs><marker id="me2" viewBox="0 0 10 10" refX="8" refY="5" markerWidth="7" markerHeight="7" orient="auto"><path d="M0 0L10 5L0 10z" class="arh"/></marker></defs>
+            <rect class="box s4 dash" x="150" y="15" width="555" height="265" rx="10"/><text class="m" x="165" y="36">Secure internal network: no USB transfer, no third-party cloud</text>
+            <rect class="box" x="10" y="50" width="120" height="44" rx="8"/><text x="70" y="77" text-anchor="middle">Criminal reports</text>
+            <rect class="box" x="10" y="113" width="120" height="44" rx="8"/><text x="70" y="140" text-anchor="middle">CCTV footage</text>
+            <rect class="box" x="10" y="176" width="120" height="44" rx="8"/><text x="70" y="196" text-anchor="middle">Social media</text><text x="70" y="211" text-anchor="middle">content</text>
+            <path class="ln" d="M130 72C150 72 150 135 172 135" marker-end="url(#me2)"/><path class="ln" d="M130 135H170" marker-end="url(#me2)"/><path class="ln" d="M130 198C150 198 150 135 172 135" marker-end="url(#me2)"/>
+            <rect class="box s1" x="172" y="60" width="150" height="150" rx="8"/><text class="b" x="247" y="90" text-anchor="middle">Filter</text><text class="m" x="247" y="116" text-anchor="middle">Action</text><text class="m" x="247" y="134" text-anchor="middle">People</text><text class="m" x="247" y="152" text-anchor="middle">Vehicles</text><text class="m" x="247" y="180" text-anchor="middle">User-defined tags</text>
+            <path class="ln" d="M322 135H358" marker-end="url(#me2)"/>
+            <rect class="box s2" x="360" y="60" width="170" height="150" rx="8"/><text class="b" x="445" y="90" text-anchor="middle">Timeline</text><text class="m" x="445" y="116" text-anchor="middle">Drag and drop</text><text class="m" x="445" y="134" text-anchor="middle">Chronological order</text><text class="m" x="445" y="152" text-anchor="middle">Personal notes</text><text class="m" x="445" y="180" text-anchor="middle">Role-based access</text>
+            <path class="ln" d="M530 135H566" marker-end="url(#me2)"/>
+            <rect class="box s3" x="568" y="85" width="124" height="100" rx="8"/><text class="b" x="630" y="118" text-anchor="middle">Handover</text><text class="m" x="630" y="140" text-anchor="middle">Next officer sees</text><text class="m" x="630" y="156" text-anchor="middle">steps already taken</text>
+            <rect class="box s5" x="172" y="232" width="520" height="34" rx="8"/><text x="432" y="254" text-anchor="middle">Audit log: every filter and search is recorded and traceable</text>
+          </svg></div>
+          <figcaption><b>Figure 4.</b> Euroduc concept architecture.</figcaption>
+        </figure>
+
+        <h2 class="n">Interactive exercise: filter and audit</h2>
+        <p>This exercise mimics the Euroduc filter on invented data. It shows a trade-off that the design has to manage: narrower filters speed up review but can hide relevant material, which is why every filter is logged and reversible.</p>
+        <div class="lab" id="lab-e">
+          <h3>Find the suspect</h3>
+          <p style="font-size:15px;margin:0">Invented scenario: a robbery was reported and witnesses say the suspect fled on foot. Sixteen clips come from nearby cameras. Ground truth is shown here only for the exercise. In a real case it is not known.</p>
+          <div id="e-ctl"></div>
+          <div class="mets" id="e-mets" aria-live="polite"></div>
+          <div class="note" id="e-msg"></div>
+          <div class="ctl"><button type="button" class="seg" id="e-reveal">Show what the filters hide</button><button type="button" class="seg" id="e-reset">Reset</button></div>
+          <div class="clips" id="e-clips"></div>
+          <div class="log" id="e-log" aria-label="Audit log"></div>
+        </div>
+
+        <h2 class="n">Discussion</h2>
+        <p>The findings support a cautious reading: refining systems that officers already trust is a more practical and arguably more ethical route than replacing them. It limits retraining, reduces the risk of failure and keeps accountability visible. For practice, the report recommends workshops and clear evidence of benefits to address resistance, robust testing, collaboration between analysts, researchers and developers, and algorithms that are transparent, unbiased and privacy-respecting.</p>
+        <p>The resistance can also be read through technology-acceptance research. Venkatesh et al. (2003) identify performance expectancy, effort expectancy, social influence and facilitating conditions as determinants of acceptance and use. The retraining burden maps onto effort expectancy, and hardware restrictions onto facilitating conditions. This mapping is my interpretation and was not tested in the study.</p>
+        <h3>Limitations</h3>
+        <p>The practitioner evidence is one interview and one user test, with participants from two organisations, so the findings are not representative. Efficiency and speed gains were not measured. The bias-mitigation and security principles are design intentions that have not been validated. The prototype was not tested in an operational setting. Perspectives of policymakers and technology developers are missing and would strengthen future work. Meijer and Wessels (2019) call for independent tests of the expectations attached to policing technology, and the same applies to Euroduc.</p>
+
+        <h2 class="n">Conclusion</h2>
+        <p>Optimised algorithms can improve data handling and decision-making in policing, but safety concerns, resistance to change and retraining needs have to be addressed first. Euroduc responds with an e-commerce-inspired filter and a Timeline that supports collaboration within security restrictions. Testing with practitioners produced concrete refinements, namely role-based access, hierarchical organisation and custom tags.</p>
+
+        <h2 class="n">References</h2>
+        <ul class="refs">
+          <li>Algopol. (2020). <i>Algorithmic policing: Transparency, accountability, and societal impact.</i> Utrecht University. <a href="https://algopol.sites.uu.nl/publications/?lang=en" target="_blank" rel="noopener">algopol.sites.uu.nl</a></li>
+          <li>A framework for LLM-assisted smart policing system. (2024). Semantic Scholar. <a href="https://www.semanticscholar.org/paper/aaf66960acbcefa01b9af1002d12e4b327b158cf" target="_blank" rel="noopener">semanticscholar.org</a></li>
+          <li>Bennett Moses, L., &amp; Chan, J. (2018). Algorithmic prediction in policing: Assumptions, evaluation, and accountability. <i>Policing and Society, 28</i>(7), 806–822. <a href="https://doi.org/10.1080/10439463.2016.1253695" target="_blank" rel="noopener">doi.org/10.1080/10439463.2016.1253695</a></li>
+          <li>Hevner, A. R., March, S. T., Park, J., &amp; Ram, S. (2004). Design science in information systems research. <i>MIS Quarterly, 28</i>(1), 75–105.</li>
+          <li>Meijer, A., &amp; Wessels, M. (2019). Predictive policing: Review of benefits and drawbacks. <i>International Journal of Public Administration, 42</i>(12), 1031–1039. <a href="https://doi.org/10.1080/01900692.2019.1575664" target="_blank" rel="noopener">doi.org/10.1080/01900692.2019.1575664</a></li>
+          <li>Police Executive Research Forum. (2022). Linking the workforce crisis, crime, and response time. <i>Police Chief Magazine.</i> <a href="https://www.policechiefmagazine.org/linking-the-workforce-crisis-crime-and-response-time/" target="_blank" rel="noopener">policechiefmagazine.org</a></li>
+          <li>Rudin, C. (2019). Stop explaining black box machine learning models for high stakes decisions and use interpretable models instead. <i>Nature Machine Intelligence, 1</i>(5), 206–215. <a href="https://arxiv.org/abs/1811.10154" target="_blank" rel="noopener">arxiv.org/abs/1811.10154</a></li>
+          <li>Sandhu, A., &amp; Fussey, P. (2021). The &lsquo;uberization of policing&rsquo;? How police negotiate and operationalise predictive policing technology. <i>Policing and Society, 31</i>(1), 66–81. <a href="https://doi.org/10.1080/10439463.2020.1803315" target="_blank" rel="noopener">doi.org/10.1080/10439463.2020.1803315</a></li>
+          <li>Sarzaeim, P., et al. (2023). A systematic review of using machine learning and natural language processing in smart policing.</li>
+          <li>Statewatch. (2024). EU police data plans pose substantial security and privacy threats. <a href="https://www.statewatch.org/news/2024/december/eu-police-data-plans-pose-substantial-security-and-privacy-threats" target="_blank" rel="noopener">statewatch.org</a></li>
+          <li>Venkatesh, V., Morris, M. G., Davis, G. B., &amp; Davis, F. D. (2003). User acceptance of information technology: Toward a unified view. <i>MIS Quarterly, 27</i>(3), 425–478.</li>
+          <li>Interview with a Swedish police officer, December 2024. Anonymous.</li>
+          <li>User test with a data analyst at a European security agency, December 2024. Group session.</li>
+        </ul>
+        <p class="note" style="margin-top:28px">This web version was adapted from the original report with AI assistance. The study was a team project, and the findings reflect the small sample described above.</p>
+      </article>
+    </div>
+
+    <!-- OPENHOUSE -->
+    <div data-view id="v-openhouse">
+      <p class="eyebrow"><a class="back" href="#earlier">&larr; Earlier research</a></p>
+      <article class="paper">
+        <h1>OPEN HOUSE: designing emotional connection through interactive narratives</h1>
+        <p class="meta">Danial Alemasoum · Research report in response to the Playground Emerging Interactions brief<br>Installation presented and tested in Amsterdam</p>
+
+        <div class="abs">
+          <h2>Abstract</h2>
+          <p>Digital communication often prioritises efficiency over intimacy. OPEN HOUSE is an immersive, participatory installation that asks how environments can mediate authentic emotional connection beyond image and text. Two participants each upload up to ten short videos expressing what &ldquo;feeling at home&rdquo; means to them. The videos are processed in TouchDesigner: each participant gets a personal wall, and a central wall merges 2–5 second snippets from both into one evolving narrative. A keyboard of colour-coded buttons lets participants change the floor's ambient colour. The installation was tested with 20 students aged 20 to 28 through interviews, surveys and observation. Testing showed that some participants did not know which buttons to press, missed the floor colour change, struggled to upload videos, or did not grasp the concept, which points to the need for onboarding cues. The report positions the work against related installations and outlines scaling to more participants and public spaces.</p>
+          <p class="kw">Keywords: interactive installation · emotional connection · co-creation · narrative · participatory design</p>
+        </div>
+
+        <h2 class="n">Introduction</h2>
+        <p>Everything online moves fast, feels shallow and leaves many people tired. OPEN HOUSE responds to the Playground Emerging Interactions brief, which calls for new modes of human resonance and shared connection. Rather than an interface or an app, it offers a space in which people can slow down and be present together without having to perform or explain anything.</p>
+        <p><em>Research question.</em> How can we create environments that mediate authentic emotional connection, beyond image and text?</p>
+        <p>The concept of &ldquo;home&rdquo; was chosen because it is open: it can be a person, a colour, a place, a sound, a smell or a fleeting moment. Because the installation was presented in Amsterdam, a deeply multicultural city, this openness let each participant bring a personal version of home into the space.</p>
+
+        <h2 class="n">Related work and theoretical frame</h2>
+        <p>Two installations served as reference points (Table 1). <em>Connected Worlds</em> (Design I/O) is large and playful, with children moving through projected environments whose ecosystem responds to their actions. The <em>VC art installation</em> (Inavate, 2023) links people in different cities through synchronised video screens. OPEN HOUSE keeps the idea of co-creation but trades motion for memory: interaction is reflective, not physical.</p>
+        <figure class="fig">
+          <div class="scroll"><table class="tbl">
+            <thead><tr><th>Work</th><th>Mode of interaction</th><th>What connects people</th></tr></thead>
+            <tbody>
+              <tr><td>Connected Worlds</td><td>Bodily and playful: children move and shape a projected ecosystem</td><td>A shared ecosystem that responds to collective action</td></tr>
+              <tr><td>VC art installation</td><td>Synchronised video screens acting as portals between cities</td><td>Encounters across distance, such as strangers waving across time and space</td></tr>
+              <tr><td>OPEN HOUSE</td><td>Reflective: uploading memories and shaping an emotional atmosphere</td><td>Personal definitions of &ldquo;home&rdquo; blended into one narrative</td></tr>
+            </tbody>
+          </table></div>
+          <figcaption><b>Table 1.</b> Related installations, summarised from the report's reading of public descriptions.</figcaption>
+        </figure>
+        <p>Four sources shaped the design. Cohn (2013) shows that people can interpret fragmented or shuffled images using mental models and context, which supports an unfixed, randomised narrative. Sanders and Stappers (2008) treat co-creation as a way for people to shape meaning rather than only consume it. Lynch (1960) describes the city as a collection of mental images, and the installation collects personal definitions of home in a similar way. McCarthy and Wright (2004) argue that meaningful interaction is an experience, not mere use: OPEN HOUSE was designed to be felt.</p>
+        <p>Further work frames the intent. Hassenzahl (2010) centres design on the experiences technology makes possible. Hallnäs and Redström (2001) propose slow technology, designed for reflection, which fits the aim of slowing people down. Gaver et al. (2003) argue that ambiguity can be a resource for design, giving people room for their own interpretation, which supports the open-ended, non-linear structure. Elliot and Maier (2014) review research on how perceiving colour relates to psychological functioning, which is the background to the colour-coded buttons.</p>
+
+        <h2 class="n">Design</h2>
+        <p>Participants first pass three posters along the path to the interaction space, which introduce home as something fluid. They then scan separate QR codes and upload up to ten short videos about what feeling at home means to them. In the room, each participant has a personal wall that continuously shows their videos, and a central wall merges snippets of 2–5 seconds from both participants using a randomised editing logic. At the centre, an interaction station with colour-coded buttons (for example red, blue and green) changes the floor's ambient colour at any moment. The experience is non-linear and open-ended, and participants stay as long as they wish.</p>
+
+        <figure class="fig">
+          <ol class="steps">
+            <li>Three posters on the path introduce &ldquo;home&rdquo;</li>
+            <li>Each participant scans a QR code</li>
+            <li>Upload up to ten short videos</li>
+            <li>Videos are screened manually for safety</li>
+            <li>Personal walls show each participant's videos</li>
+            <li>Central wall merges both stories</li>
+            <li>Colour buttons change the floor's ambient colour</li>
+            <li>Participants leave and all personal data is deleted</li>
+          </ol>
+          <figcaption><b>Figure 1.</b> Participant journey.</figcaption>
+        </figure>
+
+        <figure class="fig">
+          <div class="dia"><svg class="dg" viewBox="0 0 720 370" role="img" aria-label="Schematic plan of the installation room with two personal walls, a central wall, a floor that changes colour, a central interaction station and an entrance path with posters.">
+            <rect class="box" x="140" y="20" width="560" height="300" rx="8"/>
+            <rect class="f1" x="140" y="70" width="14" height="200"/><text class="m" x="168" y="164">Personal</text><text class="m" x="168" y="180">wall A</text>
+            <rect class="f2" x="686" y="70" width="14" height="200"/><text class="m" x="672" y="164" text-anchor="end">Personal</text><text class="m" x="672" y="180" text-anchor="end">wall B</text>
+            <rect class="f3" x="200" y="20" width="440" height="14"/><text class="b" x="420" y="56" text-anchor="middle">Central wall: merged narrative</text>
+            <ellipse cx="420" cy="195" rx="170" ry="80" class="f4" fill-opacity=".15" stroke="var(--teal)" stroke-width="1.5" stroke-dasharray="6 5"/>
+            <text class="m" x="420" y="128" text-anchor="middle">Floor: ambient colour changes</text>
+            <rect class="box s5" x="365" y="178" width="110" height="46" rx="6"/><text class="b" x="420" y="198" text-anchor="middle">Interaction station</text>
+            <circle cx="395" cy="212" r="5" fill="var(--red)"/><circle cx="420" cy="212" r="5" fill="var(--blue)"/><circle cx="445" cy="212" r="5" fill="#2E9E6B"/>
+            <path class="ln dash" d="M420 365V322" marker-end="url(#mo1)"/>
+            <defs><marker id="mo1" viewBox="0 0 10 10" refX="8" refY="5" markerWidth="7" markerHeight="7" orient="auto"><path d="M0 0L10 5L0 10z" class="arh"/></marker></defs>
+            <rect class="box" x="300" y="336" width="14" height="22" rx="2"/><rect class="box" x="322" y="336" width="14" height="22" rx="2"/><rect class="box" x="344" y="336" width="14" height="22" rx="2"/>
+            <text class="m" x="440" y="352">Entrance path with three posters</text>
+          </svg></div>
+          <figcaption><b>Figure 2.</b> Schematic plan of the room. The spatial arrangement is illustrative and not to scale.</figcaption>
+        </figure>
+
+        <figure class="fig">
+          <div class="dia"><svg class="dg" viewBox="0 0 720 276" role="img" aria-label="System pipeline: uploads from two participants are screened, processed in TouchDesigner and shown on three walls. The station changes the floor colour. Data is deleted afterwards.">
+            <defs><marker id="mo2" viewBox="0 0 10 10" refX="8" refY="5" markerWidth="7" markerHeight="7" orient="auto"><path d="M0 0L10 5L0 10z" class="arh"/></marker></defs>
+            <rect class="box s1" x="10" y="20" width="170" height="60" rx="8"/><text class="b" x="95" y="45" text-anchor="middle">Participant A</text><text class="m" x="95" y="63" text-anchor="middle">QR code, up to 10 videos</text>
+            <rect class="box s2" x="10" y="105" width="170" height="60" rx="8"/><text class="b" x="95" y="130" text-anchor="middle">Participant B</text><text class="m" x="95" y="148" text-anchor="middle">QR code, up to 10 videos</text>
+            <path class="ln" d="M180 50C200 50 200 100 220 100" marker-end="url(#mo2)"/><path class="ln" d="M180 135C200 135 200 100 220 100" marker-end="url(#mo2)"/>
+            <rect class="box" x="222" y="55" width="120" height="90" rx="8"/><text class="b" x="282" y="94" text-anchor="middle">Manual</text><text class="b" x="282" y="111" text-anchor="middle">safety screening</text>
+            <path class="ln" d="M342 100H372" marker-end="url(#mo2)"/>
+            <rect class="box s3" x="374" y="55" width="110" height="90" rx="8"/><text class="b" x="429" y="94" text-anchor="middle">TouchDesigner</text><text class="m" x="429" y="111" text-anchor="middle">processing</text>
+            <path class="ln" d="M484 100C505 100 505 38 522 38" marker-end="url(#mo2)"/><path class="ln" d="M484 100H520" marker-end="url(#mo2)"/><path class="ln" d="M484 100C505 100 505 162 522 162" marker-end="url(#mo2)"/>
+            <rect class="box" x="524" y="14" width="186" height="48" rx="8"/><text x="617" y="43" text-anchor="middle">Personal wall A</text>
+            <rect class="box" x="524" y="76" width="186" height="48" rx="8"/><text x="617" y="105" text-anchor="middle">Personal wall B</text>
+            <rect class="box s3" x="524" y="138" width="186" height="48" rx="8"/><text class="b" x="617" y="159" text-anchor="middle">Central wall</text><text class="m" x="617" y="176" text-anchor="middle">random 2–5 s snippets</text>
+            <rect class="box s5" x="222" y="205" width="150" height="40" rx="8"/><text x="297" y="230" text-anchor="middle">Interaction station</text>
+            <path class="ln" d="M372 225H522" marker-end="url(#mo2)"/>
+            <rect class="box s4" x="524" y="205" width="186" height="40" rx="8"/><text x="617" y="230" text-anchor="middle">Floor ambient colour</text>
+            <text class="m" x="10" y="266">All personal data is deleted after the experience</text>
+          </svg></div>
+          <figcaption><b>Figure 3.</b> System overview, from upload to the three walls and the floor.</figcaption>
+        </figure>
+
+        <h2 class="n">Evaluation</h2>
+        <p>The installation was tested in its fully set-up form, with every stage running, from uploading videos to co-watching the evolving narrative. Twenty students from various academic backgrounds, all studying at universities in Amsterdam, took part. Ages ranged from 20 to 28. About 50% identified as female, 30% as male, and the rest preferred not to say (Figure 4).</p>
+        <p>Data came from short interviews and online surveys with prepared questions on clarity, emotional engagement and ease of interaction, plus open comments. Participants were told that their behaviour in the room would be observed for research purposes, and no recordings were made.</p>
+        <figure class="fig">
+          <div class="bars" role="img" aria-label="Participants by gender: about 50 percent female, 30 percent male, 20 percent preferred not to say">
+            <div class="bar"><span>Female</span><i style="width:50%;--c:var(--purple)"></i><b>~50%</b></div>
+            <div class="bar"><span>Male</span><i style="width:30%;--c:var(--teal)"></i><b>~30%</b></div>
+            <div class="bar"><span>Preferred not to say</span><i style="width:20%;--c:var(--amber)"></i><b>~20%</b></div>
+          </div>
+          <figcaption><b>Figure 4.</b> Test participants (n = 20), as reported, rounded. The remaining share is the difference to 100%.</figcaption>
+        </figure>
+
+        <h2 class="n">Findings</h2>
+        <p>Testing challenged some design assumptions. Several participants did not know which buttons to press or did not notice the floor colour change. Others had difficulty uploading videos, or said the idea of &ldquo;feeling at home&rdquo; had not come across. One participant asked, &ldquo;What's the point? Is it reminding me of my memories?&rdquo;. These comments reveal a gap between the intended emotional depth and the experienced one.</p>
+        <p>The open-endedness suited some participants, while others needed a little more structure. Observation also showed the other side: some people became absorbed and stayed in the space for 20–30 minutes, simply watching.</p>
+        <figure class="fig">
+          <div class="two">
+            <div><h4>Observed in testing</h4><ul><li>Unclear which buttons to press</li><li>Floor colour change not noticed</li><li>Difficulty uploading videos</li><li>Concept of &ldquo;home&rdquo; not always communicated</li></ul></div>
+            <div class="mid">&rarr;</div>
+            <div><h4>Directions for iteration</h4><ul><li>Clearer signage</li><li>Transitional lighting</li><li>A sound layer that reinforces mood</li><li>Gentle guidance that shows the system is alive without breaking the quiet</li></ul></div>
+          </div>
+          <figcaption><b>Figure 5.</b> From test observations to planned iterations. The report presents these directions as a group, not as one-to-one fixes.</figcaption>
+        </figure>
+
+        <h2 class="n">Ethics and privacy</h2>
+        <p>Trust was treated as part of the experience design. Participants were asked not to upload harmful or explicit material, all videos were screened manually, and all personal data is deleted permanently after the experience. The aim was the opposite of attention-harvesting design: people need to feel safe to share something real.</p>
+
+        <h2 class="n">Interactive exercise: compose the shared wall</h2>
+        <p>The central wall blends snippets of 2–5 seconds from the participants' videos using a randomised logic. This exercise simulates one minute of that wall. It also asks a question the report leaves open: what happens to intimacy when more than two people share the wall?</p>
+        <div class="lab" id="lab-o">
+          <h3>Montage simulator</h3>
+          <div class="rng"><label for="o-n">Participants: <b id="o-nv">2</b></label><input type="range" id="o-n" min="2" max="6" value="2"><button type="button" class="seg on" id="o-gen">Generate a new minute</button></div>
+          <div class="mont" id="o-bar" role="img" aria-label="Simulated montage timeline"></div>
+          <div class="scroll"><table class="tbl" id="o-tbl"></table></div>
+          <p class="refl" id="o-txt"></p>
+          <h3 style="margin-top:22px">Floor colour</h3>
+          <p style="font-size:15px;margin:0 0 8px">Press a button, as at the interaction station.</p>
+          <div class="ctl"><button type="button" class="seg" data-fc="#C23A4E">Red</button><button type="button" class="seg" data-fc="#2F4B7C">Blue</button><button type="button" class="seg" data-fc="#2E9E6B">Green</button></div>
+          <div class="floor" id="o-floor" aria-hidden="true"></div>
+          <p class="log" id="o-log" style="margin-top:10px">No colour shifts yet.</p>
+        </div>
+
+        <h2 class="n">Discussion and reflection</h2>
+        <p>Ambiguity was a deliberate choice (Gaver et al., 2003). There was no start screen, no end credits and no interface telling people what to do. This invited curiosity, though some participants did not realise they could interact more deeply, so gentle guidance through sound, light transitions or soft cues is planned.</p>
+        <p>Scaling is the main open question. With three, four or more participants, could the central wall remix more narratives and still keep emotional intimacy? Could the work move into public spaces such as libraries, metro stations and campuses, where strangers pass each other every day without really seeing one another? The simulator above shows only the arithmetic of dilution, not the experience, and testing is needed to answer it.</p>
+        <p>The sample was 20 students in one city, so the findings do not generalise, and the evaluation relied on self-report and observation without recordings.</p>
+
+        <h2 class="n">Conclusion</h2>
+        <p>OPEN HOUSE proposes that design does not always need to be loud or efficient to be powerful. Slowing people down, giving them permission to reflect and letting their memories meet can create a small shared pause. Testing showed where that intention was not yet carried by the space, and it set a clear direction for the next iteration.</p>
+
+        <h2 class="n">References</h2>
+        <ul class="refs">
+          <li>Cohn, N. (2013). <i>The visual language of comics: Introduction to the structure and cognition of sequential images.</i> Bloomsbury Academic.</li>
+          <li>Design I/O. (n.d.). Connected Worlds. <a href="https://www.design-io.com/projects/connectedworlds" target="_blank" rel="noopener">design-io.com</a></li>
+          <li>Elliot, A. J., &amp; Maier, M. A. (2014). Color psychology: Effects of perceiving color on psychological functioning in humans. <i>Annual Review of Psychology, 65,</i> 95–120. <a href="https://pubmed.ncbi.nlm.nih.gov/23808916/" target="_blank" rel="noopener">PubMed</a></li>
+          <li>Gaver, W. W., Beaver, J., &amp; Benford, S. (2003). Ambiguity as a resource for design. In <i>Proceedings of CHI 2003.</i> ACM. <a href="https://doi.org/10.1145/642611.642653" target="_blank" rel="noopener">doi.org/10.1145/642611.642653</a></li>
+          <li>Hallnäs, L., &amp; Redström, J. (2001). Slow technology: Designing for reflection. <i>Personal and Ubiquitous Computing, 5</i>(3), 201–212. <a href="https://doi.org/10.1007/PL00000019" target="_blank" rel="noopener">doi.org/10.1007/PL00000019</a></li>
+          <li>Hassenzahl, M. (2010). <i>Experience design: Technology for all the right reasons.</i> Morgan &amp; Claypool. <a href="https://doi.org/10.1007/978-3-031-02191-6" target="_blank" rel="noopener">doi.org/10.1007/978-3-031-02191-6</a></li>
+          <li>Inavate. (2023, October 4). VC art installation opens portals between cities. <i>Inavate on the Net.</i> <a href="https://www.inavateonthenet.net/news/article/vc-art-installation-opens-portals-between-cities" target="_blank" rel="noopener">inavateonthenet.net</a></li>
+          <li>Lynch, K. (1960). <i>The image of the city.</i> MIT Press.</li>
+          <li>McCarthy, J., &amp; Wright, P. (2004). <i>Technology as experience.</i> MIT Press.</li>
+          <li>Sanders, E. B.-N., &amp; Stappers, P. J. (2008). Co-creation and the new landscapes of design. <i>CoDesign, 4</i>(1), 5–18. <a href="https://doi.org/10.1080/15710880701875068" target="_blank" rel="noopener">doi.org/10.1080/15710880701875068</a></li>
+        </ul>
+        <p class="note" style="margin-top:28px">This web version was adapted from the original report with AI assistance. Figures 1 to 3 are schematic redraws based on the report's description.</p>
+      </article>
+    </div>
+
+    <!-- ABOUT -->
+    <div data-view id="v-about">
+      <img class="logo" src="logo.png" alt="Lapin yliopisto, University of Lapland" style="margin-bottom:28px">
+      <p class="eyebrow">About</p>
+      <div class="about">
+        <img class="portrait" src="photos/danial.jpg" alt="Portrait of Danial Alemasoum" width="400" height="400">
+        <div>
+          <h1 style="font-size:clamp(32px,5vw,48px)">Danial Alemasoum</h1>
+          <p class="lede" style="margin-top:18px">Doctoral researcher at the University of Lapland, working on empathy, public services and AI. University teacher.</p>
+          <p>I hold a Master's degree from the Amsterdam University of Applied Sciences. My doctoral work asks how empathy in public service design turns into systemic bias when AI scales it, and how designers and policymakers can notice that early.</p>
+          <p>I am happy to talk with researchers and practitioners working on public services, participatory design and algorithmic fairness.</p>
+        </div>
+      </div>
+      <section class="block">
+        <h2>Contact and profiles</h2>
+        <p><span class="mail">Danial.alemasoum@ulapland.fi</span></p>
+        <p class="plinks"><a href="https://research.ulapland.fi/fi/persons/danial-alemasoum/" target="_blank" rel="noopener">University of Lapland research portal</a><a href="https://www.linkedin.com/in/danial-alemasoum-b3a733135/" target="_blank" rel="noopener">LinkedIn</a></p>
+        <p style="color:var(--muted);font-size:15px">University of Lapland, Rovaniemi, Finland.</p>
+      </section>
+    </div>
+  </main>
+
+  <footer>
+    <img class="logo" src="logo.png" alt="Lapin yliopisto, University of Lapland">
+    <span>Danial.alemasoum@ulapland.fi</span>
+  </footer>
+</div>
+
+<script>
+(function(){
+  /* Dot fields: a grid with one unfilled region (the blind spot). The same region repeats when the field is multiplied. */
+  var NS='http://www.w3.org/2000/svg';
+  function field(cols,rows,copies,w,h){
+    var svg=document.createElementNS(NS,'svg');
+    svg.setAttribute('viewBox','0 0 '+w+' '+h);svg.setAttribute('role','img');
+    var n=Math.round(Math.sqrt(copies)),cw=w/n,ch=h/n;
+    for(var c=0;c<copies;c++){
+      var ox=(c%n)*cw,oy=Math.floor(c/n)*ch,pad=n>1?3:0;
+      var gx=(cw-2*pad)/cols,gy=(ch-2*pad)/rows,r=Math.min(gx,gy)*.32;
+      for(var j=0;j<rows;j++)for(var i=0;i<cols;i++){
+        var hole=(i>=cols-4&&i<cols-1&&j>=1&&j<=2);
+        var el=document.createElementNS(NS,'circle');
+        el.setAttribute('cx',ox+pad+gx*(i+.5));el.setAttribute('cy',oy+pad+gy*(j+.5));el.setAttribute('r',r);
+        if(hole){el.setAttribute('fill','none');el.setAttribute('stroke','var(--red)');el.setAttribute('stroke-width',n>1?0.9:1.6)}
+        else{el.setAttribute('fill','var(--blue)');el.setAttribute('opacity','.85')}
+        svg.appendChild(el);
+      }
+    }
+    return svg;
+  }
+  var steps=[
+    ['1 · Blind spot','A design process builds its understanding around one group.',1,'The ringed region is the experience nobody designed for.'],
+    ['2 · Encoded','That understanding is written into data and decision logic.',1,'The same gap now lives in the system.'],
+    ['3 · Multiplied','The service runs at algorithmic speed and scale.',16,'Every run repeats the same gap.']
+  ];
+  function build(id){
+    var box=document.getElementById(id);if(!box||box.children.length)return;
+    steps.forEach(function(s,k){
+      var f=document.createElement('div');f.className='field';
+      var svg=field(10,5,s[2],300,150);svg.setAttribute('aria-label',s[3]);f.appendChild(svg);
+      var b=document.createElement('b');b.textContent=s[0];f.appendChild(b);
+      var sp=document.createElement('span');sp.textContent=s[1];f.appendChild(sp);
+      box.appendChild(f);
+    });
+  }
+  build('fields');build('fields2');
+
+  var views=['home','research','canvas','talks','earlier','euroduc','openhouse','about'];var navFor={euroduc:'earlier',openhouse:'earlier'};
+  function route(){
+    var h=(location.hash||'#home').slice(1);if(views.indexOf(h)<0)h='home';
+    views.forEach(function(v){
+      var el=document.getElementById('v-'+v);if(el)el.classList.toggle('on',v===h);
+    });
+    var links=document.querySelectorAll('nav a');
+    for(var i=0;i<links.length;i++){
+      if(links[i].getAttribute('href')==='#'+(navFor[h]||h))links[i].setAttribute('aria-current','page');
+      else links[i].removeAttribute('aria-current');
+    }
+    window.scrollTo(0,0);
+  }
+  window.addEventListener('hashchange',route);route();
+})();
+</script>
+<script>
+(function(){
+  var D={
+   gather:['Stage 1 · Gather','Declare assumptions, then co-design','Before the session, designers and policymakers describe their own assumptions and flag what they are unsure about. Then they co-design with marginalised groups, asking how these groups perceive AI from their own situation, alongside other stakeholders. One check: do participants from marginalised groups get the same value for their time as other stakeholders?'],
+   compare:['Stage 2 · Compare','Code, map and compare','The facilitator codes the co-design material openly and maps the actors, their roles and interdependencies. Lived accounts are then compared with the system view. The question is why they differ, not which one is correct.'],
+   gap:['Stage 2 · Decision','Is there a gap?','If lived accounts and the system view agree, there is no gap. If they differ, the next step is to ask what kind of gap it is.'],
+   record:['Stage 2 · No gap','Record it and move on','No gap found: it is recorded, and the process moves on.'],
+   trace:['Stage 2 · Trace into the AI','Hidden corner or hidden bias?','Ask whether the gap is a hidden corner or a hidden bias of designers or policymakers. Then trace it into the AI: where do the data or the decision logic assume otherwise, and how many decisions does it touch? This is the step where one blind spot becomes a multiplied one.'],
+   report:['Stage 2 · Report','Report the gap','The gap is reported to designers and policymakers, together with the consequences of their decisions.'],
+   respond:['Stage 3 · Respond','Public board and response','The gap goes on a public board. Policymakers answer it, guided by a moral norm for the response.'],
+   check:['Stage 3 · Decision','Still valuable to those affected?','After a set period, designers and the people affected check the answer together. If it is still valuable to those affected, the work moves to the macro stage. If not, the process returns to Stage 2 and refines the actor map.'],
+   macro:['Stage 3 · Macro stage','Institutional change','Institutional work to reduce bias. The canvas is meant to be revisited after deployment, so this stage feeds back into the next round.']
+  };
+  var order=['gather','compare','gap','trace','report','respond','check','macro'];
+  var svg=document.getElementById('cflow');if(!svg)return;
+  var nodes=svg.querySelectorAll('.cn'),cur='gather';
+  function show(id){
+    cur=id;var d=D[id];
+    document.getElementById('cp-stage').textContent=d[0];
+    document.getElementById('cp-title').textContent=d[1];
+    document.getElementById('cp-body').textContent=d[2];
+    var i=order.indexOf(id);
+    document.getElementById('cp-count').textContent=i>=0?('Step '+(i+1)+' of '+order.length):'Side branch';
+    for(var k=0;k<nodes.length;k++)nodes[k].classList.toggle('sel',nodes[k].getAttribute('data-id')===id);
+  }
+  for(var k=0;k<nodes.length;k++){(function(n){
+    n.addEventListener('click',function(){show(n.getAttribute('data-id'))});
+    n.addEventListener('keydown',function(e){if(e.key==='Enter'||e.key===' '){e.preventDefault();show(n.getAttribute('data-id'))}});
+  })(nodes[k]);}
+  document.getElementById('cp-next').addEventListener('click',function(){var i=order.indexOf(cur);show(order[(i+1)%order.length])});
+  document.getElementById('cp-prev').addEventListener('click',function(){var i=order.indexOf(cur);show(order[(i<=0?order.length:i)-1])});
+  var segs=document.querySelectorAll('.ctl .seg[data-stage]');
+  for(var j=0;j<segs.length;j++){(function(b){b.addEventListener('click',function(){
+    var st=b.getAttribute('data-stage');
+    for(var q=0;q<segs.length;q++)segs[q].classList.toggle('on',segs[q]===b);
+    for(var k=0;k<nodes.length;k++)nodes[k].classList.toggle('dim',st!=='0'&&nodes[k].getAttribute('data-stage')!==st);
+    if(st!=='0'){var f=svg.querySelector('.cn[data-stage="'+st+'"]');if(f)show(f.getAttribute('data-id'))}
+  })})(segs[j]);}
+  show('gather');
+})();
+</script>
+<script>
+(function(){
+  var vec=document.getElementById('vec');
+  var zf=document.getElementById('z-fit'),zu=document.getElementById('z-full');
+  if(vec&&zf&&zu){
+    zf.addEventListener('click',function(){vec.classList.remove('full');zf.classList.add('on');zu.classList.remove('on')});
+    zu.addEventListener('click',function(){vec.classList.add('full');zu.classList.add('on');zf.classList.remove('on')});
+  }
+  var card=document.getElementById('sc-card');if(!card)return;
+  var prog=document.getElementById('sc-prog');
+  var mode='example',cur=null,log=[],noteBack='';
+  var S={
+    intro:{st:0,t:'The scenario',q:'Which public service is being tested, and who was it designed around?',ex:'A wellbeing county introduces an online pre-screening for home-care applications. A model gives each application a priority level. It was designed around a typical applicant: a digitally confident adult applying for an older parent, in Finnish.',own:'Describe a public service that uses, or plans to use, AI or automated decisions. Who was it designed around?'},
+    gather:{st:1,t:'Stage 1 · Gather',q:'What do designers and policymakers assume, and what are they unsure about? Who joins the co-design?',ex:'Assumed: applicants have bank ID and a smartphone, and write in Finnish. Unsure: people applying alone, in other languages, or on a weak connection. Co-design with an older person living alone far from the service point, a speaker of another language and a family carer. Check: their time is valued equally to that of other stakeholders.'},
+    compare:{st:2,t:'Stage 2 · Compare',q:'What do the lived accounts say, what does the system view say, and why do they differ?',ex:'Lived: "I did not understand one question, and the service point is a long trip away, so I stopped halfway." System view: completed applications are scored consistently. Why they differ: the system view only counts people who finished.'},
+    gap:{st:2,t:'Stage 2 · Decision',q:'Is there a gap between the lived accounts and the system view?',choice:true,a:'Yes, there is a gap',b:'No gap'},
+    record:{st:2,t:'Stage 2 · No gap',q:'No gap is recorded and the process moves on.',ex:'In the example, a "no" here would be worth a second look: the system view only counts people who finished, so it cannot see the people who dropped out. You can go back and compare again.',end:true},
+    trace:{st:2,t:'Stage 2 · Trace into the AI',q:'Is it a hidden corner or a hidden bias? Where do the data or decision logic assume otherwise, and how many decisions does it touch?',ex:'A hidden bias: designers assumed a typical applicant. The score is built only from completed forms, and the free-text answer is read in Finnish only. It touches every application scored this way, so the same gap repeats with each one.'},
+    report:{st:2,t:'Stage 2 · Report',q:'What gap and which consequences go to designers and policymakers?',ex:'People with the least access to the service are the most likely to get a low priority, or none, and to have no one to ask about it.'},
+    respond:{st:3,t:'Stage 3 · Respond',q:'What goes on the public board, and how do policymakers respond?',ex:'Board: the gap and its consequences, in plain language. Response: offer assisted applications at the service point, read answers in more languages, and let any applicant ask a person to review the score.'},
+    check:{st:3,t:'Stage 3 · Decision',q:'After a set period, do designers and the people affected agree the response is still valuable to those affected?',choice:true,a:'Yes, still valuable',b:'No, return to Stage 2'},
+    macro:{st:3,t:'Stage 3 · Macro stage',q:'What institutional change follows?',ex:'Procurement asks vendors to report who drops out of the application, and the county reviews the answer at set intervals.',last:true}
+  };
+  var NEXT={intro:'gather',gather:'compare',compare:'gap',trace:'report',report:'respond',respond:'check'};
+  var CH=[['Scenario',0],['1 · Gather',1],['2 · Compare',2],['3 · Respond',3]];
+  function el(tag,cls,txt){var e=document.createElement(tag);if(cls)e.className=cls;if(txt)e.textContent=txt;return e}
+  function btn(label,fn,on){var b=el('button',on?'seg on':'seg',label);b.type='button';b.addEventListener('click',fn);return b}
+  function progress(st,summary){
+    prog.innerHTML='';
+    CH.forEach(function(c){var li=el('li',null,c[0]);
+      if(!summary&&c[1]===st)li.className='on';else if(summary||c[1]<st)li.className='done';prog.appendChild(li)});
+  }
+  function go(k){cur=k;render()}
+  function restart(){log=[];noteBack='';go('intro')}
+  function render(){
+    var d=S[cur];card.innerHTML='';progress(d.st,false);
+    card.appendChild(el('span','tag2',d.t));
+    if(noteBack&&cur==='compare'){card.appendChild(el('p','note',noteBack))}
+    card.appendChild(el('p','sc-q',(mode==='own'&&d.own)?d.own:d.q));
+    var ta=null;
+    if(d.choice){
+      var row=el('div','sc-actions');
+      row.appendChild(btn(d.a,function(){log.push({t:d.t,x:d.a});noteBack='';go(cur==='gap'?'trace':'macro')}));
+      row.appendChild(btn(d.b,function(){
+        log.push({t:d.t,x:d.b});
+        if(cur==='gap')go('record');
+        else{noteBack='Back in Stage 2: refine the actor map'+(mode==='example'?' (in the example, add the vendor and the family carer) ':' ')+'and compare again.';go('compare')}
+      }));
+      card.appendChild(row);return;
+    }
+    if(mode==='example'){var ex=el('div','ex');ex.appendChild(el('b',null,'Example answer'));ex.appendChild(document.createTextNode(d.ex));card.appendChild(ex)}
+    else if(!d.end){ta=el('textarea');ta.setAttribute('aria-label','Your answer');ta.placeholder='Type your answer here. It stays in this page only.';card.appendChild(ta)}
+    else{var ex2=el('div','ex');ex2.appendChild(el('b',null,'Note'));ex2.appendChild(document.createTextNode('Consider whether the system view can see the people who are not in its data. You can go back and compare again.'));card.appendChild(ex2)}
+    var act=el('div','sc-actions');
+    function record(){log.push({t:d.t,x:mode==='example'?d.ex:((ta&&ta.value.trim())||'(left blank)')})}
+    if(d.end){
+      act.appendChild(btn('Go back to Compare',function(){noteBack='Back in Stage 2: compare again, this time asking who is missing from the system view.';go('compare')}));
+      act.appendChild(btn('Finish',function(){record();summary()},true));
+    }else if(d.last){
+      act.appendChild(btn('Finish and see summary',function(){record();summary()},true));
+    }else{
+      act.appendChild(btn('Next step →',function(){record();noteBack=(cur==='compare')?noteBack:'';go(NEXT[cur])},true));
+    }
+    act.appendChild(btn('Restart',restart));
+    card.appendChild(act);
+  }
+  function summary(){
+    progress(3,true);card.innerHTML='';
+    card.appendChild(el('span','tag2','Summary'));card.appendChild(el('h3',null,'Your path through the canvas'));
+    var ol=el('ol','sc-sum');
+    log.forEach(function(r){var li=el('li');li.appendChild(el('b',null,r.t));li.appendChild(el('span',null,r.x));ol.appendChild(li)});
+    card.appendChild(ol);
+    var txt=log.map(function(r){return r.t+'\n'+r.x}).join('\n\n');
+    var act=el('div','sc-actions');var fb=el('div');
+    act.appendChild(btn('Copy summary',function(){
+      function fallback(){fb.innerHTML='';var t=el('textarea');t.readOnly=true;t.value=txt;fb.appendChild(t);t.select()}
+      try{navigator.clipboard.writeText(txt).then(function(){fb.textContent='Copied.'},fallback)}catch(e){fallback()}
+    },true));
+    act.appendChild(btn('Start again',restart));
+    card.appendChild(act);card.appendChild(fb);
+  }
+  var ms=document.querySelectorAll('[data-mode]');
+  for(var i=0;i<ms.length;i++){(function(b){b.addEventListener('click',function(){
+    mode=b.getAttribute('data-mode');
+    for(var q=0;q<ms.length;q++)ms[q].classList.toggle('on',ms[q]===b);
+    restart();
+  })})(ms[i]);}
+  restart();
+})();
+</script>
+<script>
+(function(){
+  function el(t,c,x){var e=document.createElement(t);if(c)e.className=c;if(x!==undefined)e.textContent=x;return e}
+  /* ---------- Euroduc: filter and audit (invented data) ---------- */
+  var root=document.getElementById('e-ctl');
+  if(root){
+    // id, action, people, vehicle, suspect, red jacket
+    var C=[[1,'running',1,0,1,1],[2,'running',1,1,1,1],[3,'walking',1,0,1,1],[4,'running',1,0,0,1],[5,'running',1,0,0,0],[6,'walking',1,0,0,0],[7,'walking',1,1,0,0],[8,'standing',1,0,0,0],[9,'standing',1,1,0,0],[10,'running',0,0,0,0],[11,'walking',1,0,0,0],[12,'standing',0,1,0,0],[13,'standing',0,0,0,0],[14,'running',1,1,0,0],[15,'walking',1,1,1,1],[16,'standing',1,0,0,0]];
+    var SUS=C.filter(function(c){return c[4]}).length;
+    var st={acts:{},ppl:'any',veh:'any',tag:false,reveal:false},logLines=[];
+    function match(c){
+      var any=false,k;for(k in st.acts)if(st.acts[k])any=true;
+      if(any&&!st.acts[c[1]])return false;
+      if(st.ppl!=='any'&&c[2]!==st.ppl)return false;
+      if(st.veh!=='any'&&c[3]!==st.veh)return false;
+      if(st.tag&&!c[5])return false;return true;
+    }
+    function describe(){
+      var a=[],k;for(k in st.acts)if(st.acts[k])a.push(k);
+      return 'action: '+(a.length?a.join(' + '):'any')+' | people: '+(st.ppl==='any'?'any':st.ppl?'with':'without')+' | vehicle: '+(st.veh==='any'?'any':st.veh?'with':'without')+' | tag red jacket: '+(st.tag?'on':'off');
+    }
+    var groups=[];
+    function group(label,opts,get,set,multi){
+      var g=el('div','fgrp');g.appendChild(el('span',null,label));
+      opts.forEach(function(o){
+        var b=el('button','seg',o[0]);b.type='button';
+        b.addEventListener('click',function(){set(o[1]);log();render()});
+        g.appendChild(b);b._o=o;
+      });
+      g._get=get;groups.push(g);root.appendChild(g);
+    }
+    group('Action',[['Running','running'],['Walking','walking'],['Standing','standing']],function(v){return !!st.acts[v]},function(v){st.acts[v]=!st.acts[v]},true);
+    group('People',[['Any','any'],['With',1],['Without',0]],function(v){return st.ppl===v},function(v){st.ppl=v});
+    group('Vehicle',[['Any','any'],['With',1],['Without',0]],function(v){return st.veh===v},function(v){st.veh=v});
+    group('Tag',[['Off',false],['Red jacket',true]],function(v){return st.tag===v},function(v){st.tag=v});
+    var mets=document.getElementById('e-mets'),msg=document.getElementById('e-msg'),clips=document.getElementById('e-clips'),lg=document.getElementById('e-log');
+    function log(){
+      var n=C.filter(match).length;
+      logLines.push((logLines.length+1)+'. '+describe()+' => '+n+' of '+C.length+' clips');
+      if(logLines.length>6)logLines.shift();
+    }
+    function render(){
+      groups.forEach(function(g){Array.prototype.forEach.call(g.querySelectorAll('button'),function(b){b.classList.toggle('on',g._get(b._o[1]))})});
+      var shown=C.filter(match),found=shown.filter(function(c){return c[4]}).length;
+      var prec=shown.length?Math.round(100*found/shown.length):0;
+      mets.innerHTML='';
+      [['Shown',shown.length+' of '+C.length],['Suspect clips found',found+' of '+SUS+' (recall '+Math.round(100*found/SUS)+'%)'],['Precision',prec+'%']].forEach(function(m){var s=el('span',null,m[0]+': '+m[1]);mets.appendChild(s)});
+      var t;
+      if(shown.length===C.length)t='No filter applied: all '+C.length+' clips are shown. Nothing is hidden, but every clip has to be reviewed.';
+      else if(found<SUS)t='Your filters hide '+(SUS-found)+' suspect clip'+(SUS-found>1?'s':'')+'. Open "Show what the filters hide" to see which. Narrow filters speed up review but can hide relevant material, so the log keeps each step visible and reversible.';
+      else if(shown.length===SUS)t='All suspect clips found and nothing else to review. This is only possible here because a user-defined tag narrows the set.';
+      else t='All suspect clips found, with '+(shown.length-SUS)+' other clip'+(shown.length-SUS>1?'s':'')+' left to review (precision '+prec+'%). '+(st.tag?'The user-defined tag narrowed the set.':'Try the user-defined tag to see how a custom tag changes the result.');
+      msg.textContent=t;
+      clips.innerHTML='';
+      C.forEach(function(c){
+        var m=match(c);if(!m&&!st.reveal)return;
+        var d=el('div','clip'+(m?'':' off')+(c[4]&&(m||st.reveal)?' sus':''));
+        d.appendChild(el('b',null,'Clip '+(c[0]<10?'0':'')+c[0]));
+        d.appendChild(document.createTextNode(c[1]+(c[2]?' · person':' · no person')+(c[3]?' · vehicle':' · no vehicle')+(c[5]?' · red jacket':'')));
+        if(c[4]&&(m||st.reveal)){d.appendChild(el('em',null,m?'suspect':'suspect (hidden by filter)'))}
+        clips.appendChild(d);
+      });
+      lg.textContent=logLines.length?logLines.join('\n'):'Audit log: no filter actions yet.';
+      lg.style.whiteSpace='pre-wrap';
+      document.getElementById('e-reveal').textContent=st.reveal?'Hide filtered-out clips':'Show what the filters hide';
+    }
+    document.getElementById('e-reveal').addEventListener('click',function(){st.reveal=!st.reveal;render()});
+    document.getElementById('e-reset').addEventListener('click',function(){st={acts:{},ppl:'any',veh:'any',tag:false,reveal:false};logLines=[];render()});
+    render();
+  }
+  /* ---------- OPEN HOUSE: montage simulator ---------- */
+  var bar=document.getElementById('o-bar');
+  if(bar){
+    var pal=['var(--blue)','var(--red)','var(--purple)','var(--teal)','var(--amber)','var(--muted)'],L='ABCDEF',N=2;
+    var nr=document.getElementById('o-n'),nv=document.getElementById('o-nv'),tb=document.getElementById('o-tbl'),tx=document.getElementById('o-txt');
+    function gen(){
+      var T=60,t=0,segs=[],p;
+      while(t<T){var len=2+Math.floor(Math.random()*4);if(t+len>T)len=T-t;p=Math.floor(Math.random()*N);segs.push({p:p,s:t,len:len});t+=len}
+      bar.innerHTML='';
+      segs.forEach(function(g){var d=el('div',null,g.len>=3?L[g.p]:'');d.style.flex=g.len+' 1 0';d.style.background=pal[g.p];d.title=L[g.p]+', '+g.len+' s';bar.appendChild(d)});
+      var share=[],gap=[],i;
+      for(i=0;i<N;i++){share.push(0);gap.push(0)}
+      segs.forEach(function(g){share[g.p]+=g.len});
+      for(i=0;i<N;i++){
+        var last=0,mx=0;
+        segs.forEach(function(g){if(g.p===i){mx=Math.max(mx,g.s-last);last=g.s+g.len}});
+        mx=Math.max(mx,T-last);gap[i]=mx;
+      }
+      var alt=0;for(i=1;i<segs.length;i++)if(segs[i].p!==segs[i-1].p)alt++;
+      tb.innerHTML='<thead><tr><th>Participant</th><th>Share of wall</th><th>Longest absence</th></tr></thead>';
+      var body=document.createElement('tbody');
+      for(i=0;i<N;i++){var r=document.createElement('tr');r.innerHTML='<td>'+L[i]+'</td><td>'+Math.round(100*share[i]/T)+'% ('+share[i]+' s)</td><td>'+gap[i]+' s</td>';body.appendChild(r)}
+      tb.appendChild(body);
+      tx.textContent='This minute has '+segs.length+' cuts and '+alt+' changes of speaker. With '+N+' participants the expected share is 1/'+N+', about '+Math.round(100/N)+'% or '+Math.round(T/N)+' s each, but chance alone makes shares and absences uneven. The simulation shows how exposure is diluted as participants are added, not how that feels, which only testing can answer.';
+    }
+    nr.addEventListener('input',function(){N=+nr.value;nv.textContent=N;gen()});
+    document.getElementById('o-gen').addEventListener('click',gen);
+    gen();
+    var fl=document.getElementById('o-floor'),fb=document.querySelectorAll('[data-fc]'),shifts=[],names={'#C23A4E':'red','#2F4B7C':'blue','#2E9E6B':'green'};
+    Array.prototype.forEach.call(fb,function(b){b.addEventListener('click',function(){
+      var c=b.getAttribute('data-fc');fl.style.background=c;shifts.push(names[c]);
+      document.getElementById('o-log').textContent='Colour shifts: '+shifts.length+' ('+shifts.slice(-8).join(', ')+')';
+    })});
+  }
+})();
+</script>
+<script>
+(function(){
+  var b=document.getElementById('copy-c'),m=document.getElementById('mail-c'),st=document.getElementById('copy-s');
+  if(!b)return;
+  b.addEventListener('click',function(){
+    var t=m.textContent;
+    function sel(){var r=document.createRange();r.selectNodeContents(m);var s=window.getSelection();s.removeAllRanges();s.addRange(r);st.textContent='Press copy to finish.'}
+    try{navigator.clipboard.writeText(t).then(function(){st.textContent='Copied.'},sel)}catch(e){sel()}
+  });
+})();
+</script>
+
+</body>
+</html>
